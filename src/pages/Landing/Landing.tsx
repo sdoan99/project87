@@ -1,4 +1,4 @@
-import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { HeroSection } from './HeroSection';
 import FirstSection from './sections/FirstSection';
 import SecondSection from './sections/SecondSection';
@@ -11,6 +11,9 @@ import { FaqSectionDemo } from '../../components/ui/faq-demo';
 export default function Landing() {
   return (
     <div className="min-h-screen bg-gray-900">
+      <Helmet>
+        <title>Strats.pro</title>
+      </Helmet>
       <HeroSection />
       
       <div className="py-24 px-4">
