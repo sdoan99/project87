@@ -7,6 +7,7 @@ import FourthSection from './sections/FourthSection';
 import { MarqueeDemo } from '../../components/ui/marquee-demo';
 import { MarqueeDemo2 } from '../../components/ui/marquee-demo2';
 import { FaqSectionDemo } from '../../components/ui/faq-demo';
+import { AnimatedWord } from './Animation/AnimatedWord';
 
 export default function Landing() {
   return (
@@ -43,7 +44,7 @@ export default function Landing() {
         Cover all your bases with the latest
       </p>
       <h3 className="text-2xl md:text-2xl font-bold text-white text-center mb-4">
-      Open Dialogue to <span className="text-blue-400">Distinguish</span> Actionable Insights vs. Crowd Noise
+        Open Dialogue to <AnimatedWord /> Actionable Insights vs. Crowd Noise
       </h3>
 
       <div className="py-24">
