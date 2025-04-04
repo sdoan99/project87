@@ -1,4 +1,3 @@
-import React from 'react'
 import { Check, X } from 'lucide-react'
 
 const features = [
@@ -25,7 +24,7 @@ const ComparisonTable: React.FC = () => {
               <th className="text-center py-4 px-4 text-gray-300 w-[17.5%]"
               title="One Stop Shop for All Things Money"
               >
-                Money Printer
+                StratsPro
               </th>
               <th className="text-center py-4 px-4 text-gray-300 w-[17.5%]"
               title="Copy Trading Delayed up to 45+ Days"
@@ -109,4 +108,3 @@ const ComparisonTable: React.FC = () => {
 }
 
 export default ComparisonTable
-

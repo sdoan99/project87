@@ -2,8 +2,8 @@ import { FaqSection } from "./faq-section";
 
 const DEMO_FAQS = [
   {
-    question: "What makes Money Printer different from other stock research tools",
-    answer: "Money Printer stands apart as the open book of financial trading and investing strategies -- delivering live, transparent profit-and-loss tracking for strategies that were once reserved for the wealthy. By making these once exclusive and private approaches open, the platform democratizes access, and makes powerful financial education and tools accesible to everyone.",
+    question: "What makes StratsPro different from other stock research tools",
+    answer: "StratsPro stands apart as the open book of financial trading and investing strategies -- delivering live, transparent profit-and-loss tracking for strategies that were once reserved for the wealthy. By making these once exclusive and private approaches open, the platform democratizes access, and makes powerful financial education and tools accesible to everyone.",
   },
   {
     question: "How do I find trading strategies that match my risk level?",

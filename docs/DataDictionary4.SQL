@@ -1,8 +1,8 @@
 /*
-# Money Printer Data Dictionary
+# StratsPr Data Dictionary
 
 ## Overview
-This document provides a comprehensive data dictionary for the Money Printer application's database schema.
+This document provides a comprehensive data dictionary for the StratsPro application's database schema.
 The schema is designed to support trading strategy management, user profiles, and trade tracking.
 
 ## Table Structure

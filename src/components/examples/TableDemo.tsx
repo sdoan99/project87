@@ -97,7 +97,7 @@ export function TableDemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <span className="cursor-default">
-                      Money Printer <span className="ml-1">ℹ️</span>
+                      StratsPro <span className="ml-1">ℹ️</span>
                     </span>
                   </TooltipTrigger>
                   <TooltipContent className="dark py-3">
@@ -109,7 +109,7 @@ export function TableDemo() {
                         aria-hidden="true"
                       />
                       <div className="space-y-1">
-                        <p className="text-[13px] font-medium">Money Printer</p>
+                        <p className="text-[13px] font-medium">StratsPro</p>
                         <p className="text-xs text-muted-foreground">
                           A comprehensive financial platform offering trading tools, 
                           educational resources, live market insights, and real facts.

@@ -139,7 +139,7 @@ function Header1() {
                     </NavigationMenu>
                 </div>
                 <div className="flex lg:justify-center">
-                    <p className={`font-semibold ${isLandingPage && isTransparent ? 'text-white' : ''}`}>Money Printer</p>
+                    <p className={`font-semibold ${isLandingPage && isTransparent ? 'text-white' : ''}`}>StratsPro</p>
                 </div>
                 <div className="flex justify-end w-full gap-4 lg:pl-[25%]">
                     {user ? (

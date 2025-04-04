@@ -1,8 +1,8 @@
-# Money Printer - Business Logic Documentation
+# StratsPro - Business Logic Documentation
 
 ## Overview
 
-Money Printer is a trading strategy platform that allows users to create, share, and track trading strategies across multiple markets. The application provides tools for tracking trade performance, visualizing market data, and analyzing strategy effectiveness.
+StratsPro is a trading strategy platform that allows users to create, share, and track trading strategies across multiple markets. The application provides tools for tracking trade performance, visualizing market data, and analyzing strategy effectiveness.
 
 ## Core Entities
 
@@ -92,4 +92,3 @@ Money Printer is a trading strategy platform that allows users to create, share,
 - Handles creating, updating, and deleting trade data
 - Processes multiple trade actions into aggregated records
 - Manages data synchronization between `bet_data` and `bet_data_metrics`
-
