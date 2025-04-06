@@ -1,0 +1,236 @@
+* 155ceef  (HEAD -> main) test: verify post-commit hook functionality 2025-04-06 15:43:38 -0600
+* b330164  test: verify post-commit hook functionality 2025-04-06 15:43:28 -0600
+* 454cff4  test: verify post-commit hook functionality 2025-04-06 15:43:17 -0600
+* 1b0b2c8  test: verify post-commit hook functionality 2025-04-06 15:43:07 -0600
+* def8a67  refactor: remove bolt configuration and update documentation 2025-04-06 15:42:31 -0600| 
+|  .bolt/config.json | 3 ---
+|  .bolt/prompt      | 8 --------
+|  2 files changed, 11 deletions(-)
+
+* 04d9b49  (origin/main) chore: add Netlify configuration file 2025-04-06 12:56:34 -0600| 
+|  netlify.toml | 11 +++++++++++
+|  1 file changed, 11 insertions(+)
+
+* b51c191  refactor: move marquee and faq components to Landing/Components directory 2025-04-06 12:54:37 -0600| 
+|  src/{components/ui => pages/Landing/Components}/faq-demo.tsx      | 0
+|  src/{components/ui => pages/Landing/Components}/faq-section.tsx   | 0
+|  src/{components/ui => pages/Landing/Components}/marquee-demo.tsx  | 0
+|  src/{components/ui => pages/Landing/Components}/marquee-demo2.tsx | 0
+|  src/{components/ui => pages/Landing/Components}/marquee.tsx       | 0
+|  src/pages/Landing/Landing.tsx                                     | 6 +++---
+|  6 files changed, 3 insertions(+), 3 deletions(-)
+
+* 79b523e  Remove unused Button import from TableDemo 2025-04-06 11:20:39 -0600| 
+|  src/pages/Price/TableDemo.tsx | 1 -
+|  1 file changed, 1 deletion(-)
+
+* de855c3  Refactor Price component and remove demo files 2025-04-06 11:18:35 -0600| 
+|  .windsurfrules                                    |  42 +++
+|  ...-hard 4113cee9f7ba62586eec065844d0cf83842ef032 | 298 ++++++++++++++++++++
+|  src/components/examples/Tooltip-Demo.tsx          |  39 ---
+|  src/components/ui/background-boxes-demo.tsx       |  20 --
+|  src/components/ui/header-demo.tsx                 |  11 -
+|  src/pages/Price/Price.tsx                         |   4 +-
+|  .../examples => pages/Price}/TableDemo.tsx        |   0
+|  7 files changed, 342 insertions(+), 72 deletions(-)
+
+| * 09c97cb  (backup-current-state) fix: update import paths in Landing.tsx to correctly reference metadata components 2025-04-04 14:18:52 -0600| | 
+| |  src/pages/Landing/Landing.tsx | 4 ++--
+| |  1 file changed, 2 insertions(+), 2 deletions(-)
+
+| * 8b9f8b9  feat: implement metadata system for SEO and social sharing 2025-04-04 14:15:17 -0600
+|/  |   
+|    src/components/examples/TableDemo.tsx     |  2 +-
+|    src/components/metadata/PageMetadata.tsx  | 32 +++++++++++
+|    src/components/metadata/metadataConfig.ts | 77 +++++++++++++++++++++++++++
+|    src/pages/Landing/Landing.tsx             | 23 ++------
+|    4 files changed, 113 insertions(+), 21 deletions(-)
+
+* 4113cee  Update metadata and add chart favicon 2025-04-04 13:48:42 -0600| 
+|  index.html          |  5 +++--
+|  package.json        |  3 ++-
+|  public/favicon.html | 23 +++++++++++++++++++++++
+|  public/favicon.svg  |  5 +++++
+|  4 files changed, 33 insertions(+), 3 deletions(-)
+
+* 94057e4  feat: add animated word component to landing page 2025-04-04 10:32:24 -0600| 
+|  src/pages/Landing/Animation/AnimatedWord.tsx | 60 ++++++++++++++++++++++++++
+|  src/pages/Landing/Landing.tsx                |  3 +-
+|  2 files changed, 62 insertions(+), 1 deletion(-)
+
+* a092080  Rename 'Money Printer' to 'StratsPro' across all files 2025-04-04 09:21:25 -0600| 
+|  docs/BusinessLogicDocumentation4.md         | 5 ++---
+|  docs/DataDictionary4.SQL                    | 4 ++--
+|  src/components/examples/TableDemo.tsx       | 4 ++--
+|  src/components/ui/faq-demo.tsx              | 4 ++--
+|  src/components/ui/header.tsx                | 2 +-
+|  src/pages/Landing/ComparisonTable.tsx       | 4 +---
+|  src/pages/Landing/sections/ThirdSection.tsx | 2 +-
+|  7 files changed, 11 insertions(+), 14 deletions(-)
+
+* b6ba193  Update package dependencies and modify App and Landing components 2025-04-03 22:03:03 -0600| 
+|  package-lock.json             | 36 ++++++++++++++++++++++++
+|  package.json                  |  3 +-
+|  src/App.tsx                   | 62 +++++++++++++++++++++--------------------
+|  src/pages/Landing/Landing.tsx |  5 +++-
+|  4 files changed, 74 insertions(+), 32 deletions(-)
+
+* dd14a9e  Initial commit 2025-04-03 16:22:32 -0600  
+   .bolt/config.json                                 |    3 +
+   .bolt/prompt                                      |    8 +
+   .gitignore                                        |   24 +
+   components.json                                   |   21 +
+   docs/BusinessLogicDocumentation4.md               |   95 +
+   docs/DataDictionary4.SQL                          |  172 +
+   docs/platform_file_structure.md                   |   83 +
+   eslint.config.js                                  |   28 +
+   index.html                                        |   13 +
+   media/Landing/section1-keystats.png               |  Bin 0 -> 30161 bytes
+   media/Landing/section1-stratsort.png              |  Bin 0 -> 51420 bytes
+   media/marquee/nfl.png                             |  Bin 0 -> 69935 bytes
+   media/marquee/nyse.png                            |  Bin 0 -> 31953 bytes
+   media/marquee/sse.png                             |  Bin 0 -> 28256 bytes
+   package-lock.json                                 | 5307 +++++++++++++++++++
+   package.json                                      |   54 +
+   postcss.config.js                                 |    6 +
+   public/_redirects                                 |    1 +
+   src/App.tsx                                       |   55 +
+   src/components/auth/AuthProvider.tsx              |   27 +
+   src/components/auth/AuthTabs.tsx                  |   33 +
+   src/components/blocks/pricing.tsx                 |  213 +
+   src/components/common/AnimatedArrow.tsx           |   23 +
+   src/components/common/AuthLayout.tsx              |   27 +
+   src/components/common/FormInput.tsx               |   49 +
+   src/components/examples/TableDemo.tsx             |  231 +
+   src/components/examples/Tooltip-Demo.tsx          |   39 +
+   src/components/layout/Header.tsx                  |    6 +
+   src/components/layout/Hero.tsx                    |   24 +
+   src/components/table/SortableHeader.tsx           |   45 +
+   src/components/tradingview/EconCal.tsx            |   42 +
+   src/components/tradingview/MarketOverview.jsx     |   94 +
+   src/components/tradingview/ScreenerCrypto.jsx     |   32 +
+   src/components/tradingview/ScreenerStocks.jsx     |   32 +
+   src/components/tradingview/TVAdvChart.html        |   26 +
+   src/components/tradingview/TVAdvChart.tsx         |   60 +
+   src/components/tradingview/TopStories.tsx         |   42 +
+   src/components/ui/background-boxes-demo.tsx       |   20 +
+   src/components/ui/background-boxes.tsx            |   79 +
+   src/components/ui/button.tsx                      |   57 +
+   src/components/ui/checkbox.tsx                    |   30 +
+   src/components/ui/faq-demo.tsx                    |   69 +
+   src/components/ui/faq-section.tsx                 |  174 +
+   src/components/ui/footer-section.tsx              |  173 +
+   src/components/ui/header-demo.tsx                 |   11 +
+   src/components/ui/header.tsx                      |  237 +
+   src/components/ui/input.tsx                       |   25 +
+   src/components/ui/label.tsx                       |   24 +
+   src/components/ui/marquee-demo.tsx                |   52 +
+   src/components/ui/marquee-demo2.tsx               |   54 +
+   src/components/ui/marquee.tsx                     |   42 +
+   src/components/ui/navigation-menu.tsx             |  126 +
+   src/components/ui/pricing.tsx                     |  213 +
+   src/components/ui/switch.tsx                      |   27 +
+   src/components/ui/table.tsx                       |   95 +
+   src/components/ui/textarea.tsx                    |   24 +
+   src/components/ui/tooltip.tsx                     |   39 +
+   src/context/SymbolContext.tsx                     |   23 +
+   src/hooks/use-media-query.ts                      |   23 +
+   src/hooks/useSortableTable.ts                     |   57 +
+   src/hooks/useStrategyMetrics.ts                   |   83 +
+   src/hooks/useStrategyProfile.ts                   |   81 +
+   src/hooks/useTradeActions.ts                      |   44 +
+   src/hooks/useTradeData.ts                         |   54 +
+   src/hooks/useTradeForm.ts                         |   94 +
+   src/hooks/useTradeSubmit.ts                       |  116 +
+   src/hooks/useUserProfile.ts                       |   37 +
+   src/index.css                                     |   72 +
+   src/lib/supabase.ts                               |    6 +
+   src/lib/utils.ts                                  |    6 +
+   src/main.tsx                                      |   10 +
+   src/pages/Auth/Register.tsx                       |  101 +
+   src/pages/Auth/SignIn.tsx                         |   71 +
+   src/pages/Community/Community.tsx                 |   21 +
+   src/pages/Create/Create.tsx                       |   32 +
+   src/pages/Create/CreateForm.tsx                   |  225 +
+   src/pages/Create/PrivacySettings.tsx              |   45 +
+   src/pages/Documentation/Documentation.tsx         |   21 +
+   src/pages/Education/Education.tsx                 |   21 +
+   src/pages/Following/Following.tsx                 |   21 +
+   src/pages/Landing/Animation/FadeInOnScroll.tsx    |   38 +
+   src/pages/Landing/Animation/FloatingElements.tsx  |  104 +
+   src/pages/Landing/ComparisonTable.tsx             |  112 +
+   src/pages/Landing/HeroSection.tsx                 |   46 +
+   src/pages/Landing/Landing.tsx                     |   56 +
+   src/pages/Landing/Previews3.tsx                   |   87 +
+   src/pages/Landing/TradingViewHeroWidget.tsx       |   57 +
+   src/pages/Landing/sections/FirstSection.tsx       |   76 +
+   src/pages/Landing/sections/FourthSection.tsx      |  133 +
+   src/pages/Landing/sections/SecondSection.tsx      |   85 +
+   src/pages/Landing/sections/ThirdSection.tsx       |   35 +
+   src/pages/Markets/Markets.tsx                     |   45 +
+   src/pages/News/News.tsx                           |   29 +
+   src/pages/Performance/InfoPanel/description.tsx   |   13 +
+   src/pages/Performance/InfoPanel/infoheader.tsx    |   22 +
+   src/pages/Performance/InfoPanel/infopanel.tsx     |   78 +
+   src/pages/Performance/InfoPanel/key-stats.tsx     |   63 +
+   src/pages/Performance/InfoPanel/performance.tsx   |   27 +
+   src/pages/Performance/InfoPanel/price-section.tsx |   18 +
+   src/pages/Performance/InfoPanel/profile.tsx       |   34 +
+   .../Performance/InfoPanel/strategy-details.tsx    |   33 +
+   src/pages/Performance/NewTrade/DateTimeField.tsx  |   17 +
+   src/pages/Performance/NewTrade/MarketSelect.tsx   |   32 +
+   src/pages/Performance/NewTrade/NewTrade.tsx       |  109 +
+   src/pages/Performance/NewTrade/TradeActions.tsx   |   86 +
+   src/pages/Performance/NewTrade/TradeForm.tsx      |  134 +
+   src/pages/Performance/NewTrade/TradeInputRow.tsx  |   21 +
+   src/pages/Performance/NewTrade/index.ts           |    2 +
+   src/pages/Performance/NewTrade/types.ts           |   14 +
+   src/pages/Performance/NewTrade/useTradeForm.ts    |   88 +
+   src/pages/Performance/NewTrade/useTradeSubmit.ts  |   90 +
+   src/pages/Performance/Performance.tsx             |   55 +
+   src/pages/Performance/TradeTable/TableRow.tsx     |   62 +
+   src/pages/Performance/TradeTable/TradeRow.tsx     |   76 +
+   src/pages/Performance/TradeTable/TradeTable.tsx   |  107 +
+   src/pages/Performance/TradeTable/mockData.ts      |  109 +
+   src/pages/Performance/TradeTable/types.ts         |   17 +
+   src/pages/Performance/TradeTable/utils.ts         |   15 +
+   src/pages/Performance/ui/addtradebutton.tsx       |   18 +
+   src/pages/Performance/ui/button.tsx               |   32 +
+   src/pages/Performance/ui/card.tsx                 |   14 +
+   src/pages/Price/Price.tsx                         |  106 +
+   src/pages/Strategy/StratFilter/FilterButton.tsx   |   22 +
+   src/pages/Strategy/StratFilter/FilterSection.tsx  |   58 +
+   src/pages/Strategy/StratFilter/Header.tsx         |   13 +
+   src/pages/Strategy/StratFilter/SubHeader.tsx      |   25 +
+   src/pages/Strategy/StratTable/PerformanceCell.tsx |   17 +
+   src/pages/Strategy/StratTable/StrategyTable.tsx   |   47 +
+   src/pages/Strategy/StratTable/TableHeader.tsx     |   46 +
+   src/pages/Strategy/StratTable/TableRow.tsx        |   48 +
+   src/pages/Strategy/Strategy.tsx                   |   24 +
+   src/pages/Subscription/Subscription.tsx           |   21 +
+   src/pages/Support/Support.tsx                     |   21 +
+   src/services/userService.ts                       |   17 +
+   src/store/authStore.ts                            |   87 +
+   src/types/strategy.ts                             |   19 +
+   src/types/trade.ts                                |   40 +
+   src/utils/formatters.ts                           |   12 +
+   src/vite-env.d.ts                                 |    1 +
+   .../20250128225928_billowing_cherry.sql           |   53 +
+   .../migrations/20250307051811_bitter_hall.sql     |  228 +
+   tailwind.config.js                                |   79 +
+   tsconfig.app.json                                 |   39 +
+   tsconfig.json                                     |   17 +
+   tsconfig.node.json                                |   22 +
+   vite-project/.gitignore                           |   24 +
+   vite-project/index.html                           |   13 +
+   vite-project/package.json                         |   15 +
+   vite-project/public/vite.svg                      |    1 +
+   vite-project/src/counter.ts                       |    9 +
+   vite-project/src/main.ts                          |   24 +
+   vite-project/src/style.css                        |   96 +
+   vite-project/src/typescript.svg                   |    1 +
+   vite-project/src/vite-env.d.ts                    |    1 +
+   vite-project/tsconfig.json                        |   24 +
+   vite.config.ts                                    |   15 +
+   ...g.ts.timestamp-1734378750089-46fc2dbb2f4e6.mjs |   13 +
+   157 files changed, 13337 insertions(+)

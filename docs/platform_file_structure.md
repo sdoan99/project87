@@ -15,7 +15,7 @@
 │   │   ├── dataviz/        # Data visualization components
 │   │   └── tradingview/    # TradingView Widgets
 │
-│   ├── pages/              # Page-level components
+│   ├── pages/              # Page-Feature-Level components
 │   │   ├── Dashboard/
 │   │   ├── StrategyBuilder/
 │   │   ├── UserProfile/
