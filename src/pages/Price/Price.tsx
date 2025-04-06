@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Pricing } from '../../components/ui/pricing';
-import { TableDemo } from '../../components/examples/TableDemo';
+import { TableDemo } from './TableDemo';
 
 const demoPlans = [
   {

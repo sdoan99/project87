@@ -1,0 +1,42 @@
+**Runtime Environment**:
+Node.js: >= 18.0.0
+npm: >= 8.0.0
+
+**Build System**:
+Vite: 5.4.2
+
+**Core Framework**:
+React: 18.3.1
+React Router DOM: 6.22.3
+
+**TypeScript**:
+TypeScript: TypeScript v5.5.3
+TypeScript (App):ES2020
+TypeScript (Node.js): ES2022
+
+**Styling**:
+Tailwind CSS: 3.4.17
+PostCSS: 8.4.35
+Autoprefixer: 10.4.18
+tailwind-merge 2.2.1
+tailwindcss-animate 1.0.7
+
+**State Management**:
+Zustand: 4.5.2
+
+**Animation**:
+Framer Motion: 11.18.2
+
+**Backend Integration**:
+Supabase: 2.39.7
+
+**Backend (Auth)**:
+/auth-helpers-react: 0.3.1
+
+**Utility**:
+Class Variance Authority: 0.7.1
+
+**Tooling**:
+ESLint: 9.9.1
+
+
