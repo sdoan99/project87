@@ -4,9 +4,9 @@ import FirstSection from './sections/FirstSection';
 import SecondSection from './sections/SecondSection';
 import ThirdSection from './sections/ThirdSection';
 import FourthSection from './sections/FourthSection';
-import { MarqueeDemo } from '../../components/ui/marquee-demo';
-import { MarqueeDemo2 } from '../../components/ui/marquee-demo2';
-import { FaqSectionDemo } from '../../components/ui/faq-demo';
+import { MarqueeDemo } from './Components/marquee-demo';
+import { MarqueeDemo2 } from './Components/marquee-demo2';
+import { FaqSectionDemo } from './Components/faq-demo';
 import { AnimatedWord } from './Animation/AnimatedWord';
 
 export default function Landing() {
