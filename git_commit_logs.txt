@@ -1,4 +1,24 @@
-* b9b424e  (HEAD -> main) docs: update project documentation and rules 2025-04-06 15:53:23 -0600| 
+* 2fc1f2d  (HEAD -> main) refactor: clean up old Vite project files and update TableDemo 2025-04-06 23:05:51 -0600| 
+|  git_commit_logs.txt                  |  10 +++-
+|  media/Landing/section1-keystats.png  | Bin 30161 -> 0 bytes
+|  media/Landing/section1-stratsort.png | Bin 51420 -> 0 bytes
+|  media/marquee/nfl.png                | Bin 69935 -> 0 bytes
+|  media/marquee/nyse.png               | Bin 31953 -> 0 bytes
+|  media/marquee/sse.png                | Bin 28256 -> 0 bytes
+|  src/pages/Price/TableDemo.tsx        |   2 +-
+|  vite-project/.gitignore              |  24 ---------
+|  vite-project/index.html              |  13 -----
+|  vite-project/package.json            |  15 ------
+|  vite-project/public/vite.svg         |   1 -
+|  vite-project/src/counter.ts          |   9 ----
+|  vite-project/src/main.ts             |  24 ---------
+|  vite-project/src/style.css           |  96 ---------------------------------
+|  vite-project/src/typescript.svg      |   1 -
+|  vite-project/src/vite-env.d.ts       |   1 -
+|  vite-project/tsconfig.json           |  24 ---------
+|  17 files changed, 10 insertions(+), 210 deletions(-)
+
+* b9b424e  (origin/main) docs: update project documentation and rules 2025-04-06 15:53:23 -0600| 
 |  .windsurfrules                  | 165 ++++++++++++++++++++++++--
 |  docs/platform_file_structure.md |   2 +-
 |  docs/project_description.md     |  87 ++++++++++++++
@@ -15,7 +35,7 @@
 |  .bolt/prompt      | 8 --------
 |  2 files changed, 11 deletions(-)
 
-* 04d9b49  (origin/main) chore: add Netlify configuration file 2025-04-06 12:56:34 -0600| 
+* 04d9b49  chore: add Netlify configuration file 2025-04-06 12:56:34 -0600| 
 |  netlify.toml | 11 +++++++++++
 |  1 file changed, 11 insertions(+)
 
