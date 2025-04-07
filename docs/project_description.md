@@ -7,11 +7,13 @@ StratsPro is a modern, data-driven trading strategy platform built with React an
 
 ### Frontend
 - **Framework**: React 18.3.1 with TypeScript
-- **Build System**: Vite 5.4.2
+- **Build System**: Vite 6.2.5
 - **Styling**: Tailwind CSS 3.4.17 with PostCSS and Autoprefixer
 - **State Management**: Zustand 4.5.2
 - **Animation**: Framer Motion 11.18.2
 - **Routing**: React Router DOM 6.22.3
+- **UI Components**: Radix UI and Shadcn UI
+- **Class Utilities**: Class Variance Authority 0.7.1
 
 ### Backend
 - **Database**: Supabase 2.39.7
@@ -75,6 +77,7 @@ StratsPro is a modern, data-driven trading strategy platform built with React an
 - TypeScript ES2020 for application code
 - TypeScript ES2022 for Node.js
 - ESLint 9.9.1 for code linting
+- TypeScript 5.5.3 for type checking
 
 ### Performance
 - Server-side calculations for data integrity

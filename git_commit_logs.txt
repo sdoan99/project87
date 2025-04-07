@@ -1,4 +1,17 @@
-* 2fc1f2d  (HEAD -> main) refactor: clean up old Vite project files and update TableDemo 2025-04-06 23:05:51 -0600| 
+* 86779ac  (HEAD -> main) chore: update all dependencies to latest versions 2025-04-06 23:17:14 -0600| 
+|  package-lock.json | 1402 +++++++++++++++++++++++++++++++--------------------
+|  1 file changed, 846 insertions(+), 556 deletions(-)
+
+* a77f05c  (origin/main) fix: update dependencies to resolve security vulnerabilities 2025-04-06 23:15:17 -0600| 
+|  package-lock.json | 933 ++++++++++++++++++++++++++++------------------------
+|  package.json      |   2 +-
+|  2 files changed, 509 insertions(+), 426 deletions(-)
+
+* f3006ec  feat: add table demo component with comparison features 2025-04-06 23:13:01 -0600| 
+|  git_commit_logs.txt | 24 ++++++++++++++++++++++--
+|  1 file changed, 22 insertions(+), 2 deletions(-)
+
+* 2fc1f2d  refactor: clean up old Vite project files and update TableDemo 2025-04-06 23:05:51 -0600| 
 |  git_commit_logs.txt                  |  10 +++-
 |  media/Landing/section1-keystats.png  | Bin 30161 -> 0 bytes
 |  media/Landing/section1-stratsort.png | Bin 51420 -> 0 bytes
@@ -18,7 +31,7 @@
 |  vite-project/tsconfig.json           |  24 ---------
 |  17 files changed, 10 insertions(+), 210 deletions(-)
 
-* b9b424e  (origin/main) docs: update project documentation and rules 2025-04-06 15:53:23 -0600| 
+* b9b424e  docs: update project documentation and rules 2025-04-06 15:53:23 -0600| 
 |  .windsurfrules                  | 165 ++++++++++++++++++++++++--
 |  docs/platform_file_structure.md |   2 +-
 |  docs/project_description.md     |  87 ++++++++++++++

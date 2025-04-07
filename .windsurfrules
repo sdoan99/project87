@@ -28,6 +28,13 @@ React and TypeScript - financial education and trading platform the enables user
 - Structure repository files as follows:
 
 ```
+The key updates include:
+1. Updated Vite version to 6.2.5
+2. Updated TypeScript version to 5.5.3
+3. Updated all version numbers to match the latest package.json
+4. Added Class Variance Authority to the Utility section
+
+Would you like me to help you update the file with these contents?
 /trading-strategy-app
 ├── src/
 │   ├── components/         # Reusable UI components
@@ -46,7 +53,7 @@ Node.js: >= 18.0.0
 npm: >= 8.0.0
 
 Build System:
-Vite: 5.4.2
+Vite: 6.2.5
 
 Core Framework:
 React: 18.3.1
@@ -97,28 +104,6 @@ ESLint: 9.9.1
 - Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
 - Use explicit return types for all functions
 
-## Chrome Extension Specific
-- Use Manifest V3 standards
-- Implement proper message passing between components:
-  ```typescript
-  interface MessagePayload {
-    type: string;
-    data: unknown;
-  }
-  ```
-- Handle permissions properly in manifest.json
-- Use chrome.storage.local for persistent data
-- Implement proper error boundaries and fallbacks
-- Use lib/storage for storage related logic
-- For the async injected scripts in content/, 
-  - they must not close over variables from the outer scope
-  - they must not use imported functions from the outer scope
-  - they must have wrapped error handling so the error message is returned to the caller
-
-## State Management
-- Use React Context for global state when needed
-- Implement proper state persistence using chrome.storage (for extension)
-- Implement proper cleanup in useEffect hooks
 
 ## Syntax and Formatting
 - Use "function" keyword for pure functions
