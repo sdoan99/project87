@@ -3,7 +3,7 @@
 Every time you choose to apply a rule(s), explicitly state the rule(s) in the output. You can abbreviate the rule description to a single word or phrase.
 
 ## Project Context
-React and TypeScript - financial education and trading platform the enables users:
+React and TypeScript application - financial education and trading platform the enables users:
 
 **Strategy Management**
    - Strategy creation and editing
@@ -14,6 +14,7 @@ React and TypeScript - financial education and trading platform the enables user
    - Multi-action trade support
    - Atomic updates
    - Server-side calculations
+
 **Data Visualization**
    - Interactive charts
    - Performance metrics display
@@ -28,13 +29,6 @@ React and TypeScript - financial education and trading platform the enables user
 - Structure repository files as follows:
 
 ```
-The key updates include:
-1. Updated Vite version to 6.2.5
-2. Updated TypeScript version to 5.5.3
-3. Updated all version numbers to match the latest package.json
-4. Added Class Variance Authority to the Utility section
-
-Would you like me to help you update the file with these contents?
 /trading-strategy-app
 ├── src/
 │   ├── components/         # Reusable UI components
@@ -149,7 +143,7 @@ Commit Message Prefixes:
 - "test:" for adding missing tests
 - "chore:" for maintenance tasks
 
-Rules:
+### Commit Message Rules:
 - Use lowercase for commit messages
 - Keep the summary line concise
 - Include description for non-obvious changes
