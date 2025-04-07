@@ -1,4 +1,4 @@
-# Playwright E2E Testing Guidelines
+# Playwright Testing Guidelines
 
 ## Test Structure and Organization
 - Store all tests under the `tests/` folder

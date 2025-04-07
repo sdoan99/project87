@@ -65,16 +65,11 @@
 │   ├── integration/
 │   └── e2e/
 │
-├── docs/                   # Documentation
-│   └── platform_file_structure.md
-│
 ├── scripts/                # Utility scripts
 │   ├── deploy.sh
 │   └── setup.js
 │
 ├── config/                 # Configuration files
-│   ├── webpack.config.js
-│   ├── jest.config.js
 │   └── env.js
 │
 ├── package.json

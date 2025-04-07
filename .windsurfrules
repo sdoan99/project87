@@ -91,7 +91,8 @@ Class Variance Authority: 0.7.1
 
 Tooling:
 ESLint: 9.9.1
-
+Prettier: 3.5.3
+Playwright: 1.51.1
 
 
 ## Naming Conventions
