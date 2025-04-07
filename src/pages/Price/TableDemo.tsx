@@ -86,7 +86,7 @@ const items = [
 export function TableDemo() {
   return (
     <div className="p-6 bg-background rounded-lg border border-border">
-      <h2 className="text-2xl font-bold mb-6">User Accounts</h2>
+      <h2 className="text-2xl font-bold mb-6">Feature Comparisons</h2>
       <Table>
         <TableHeader className="bg-transparent">
           <TableRow className="hover:bg-transparent">
