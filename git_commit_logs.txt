@@ -1,4 +1,11 @@
-* e2f5f6a  (HEAD -> main) commit 2025-04-07 11:20:19 -0600| 
+* 45c08f5  (HEAD -> main) commit 2025-04-07 11:28:31 -0600| 
+|  .windsurfrules                  |   3 +-
+|  docs/PlaywrightGuidelines.md    |   2 +-
+|  docs/platform_file_structure.md |   5 --
+|  git_commit_logs.txt             | 156 +++++++++++++++++++++++++++++++++++++-
+|  4 files changed, 157 insertions(+), 9 deletions(-)
+
+* e2f5f6a  commit 2025-04-07 11:20:19 -0600| 
 |  playwright-report/index.html | 17612 +++++++++++++++++++++++++++++++++++++++
 |  test-results/.last-run.json  |     2 +-
 |  tests/.auth/auth.json        |    18 +
