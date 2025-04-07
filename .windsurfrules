@@ -19,14 +19,23 @@ React and TypeScript application - financial education and trading platform the 
    - Interactive charts
    - Performance metrics display
    - Market data visualization
+   
+
+# Coding Workflow
+- When creating on a user-facing feature, first search to see if there’s a e2e test already written for it
+- If not, create the test first and ask user to confirm the test is correct before proceeding, do NOT do any further work until the user explicitly confirms the test is correct
+- Implement the feature and use `npx tsc --noEmit` to check and fix compilation errors
+- Run the relevant test file via `npx playwright test tests/<test_file>` and iterate until the test passes
+- Run `npx prettier --write .` to format the code before returning to user
 
 
 ## Code Style and Structure
-- Write concise, technical TypeScript code with accurate examples
-- Use functional and declarative programming patterns; avoid classes
-- Prefer iteration and modularization over code duplication
-- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
-- Structure repository files as follows:
+- Write concise, technical TypeScript code with accurate examples.
+- Use functional and declarative programming patterns; avoid classes.
+- Prefer iteration and modularization over code duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Structure repository files: exported component, subcomponent, helpers, static content, types.
+
 
 ```
 /trading-strategy-app
@@ -83,35 +92,45 @@ Class Variance Authority: 0.7.1
 Tooling:
 ESLint: 9.9.1
 
+
+
 ## Naming Conventions
-- Use lowercase with dashes for directories (e.g., components/form-wizard)
-- Favor named exports for components and utilities
-- Use PascalCase for component files (e.g., VisaForm.tsx)
-- Use camelCase for utility files (e.g., formValidator.ts)
+- Use lowercase with dashes for directories (e.g., components/form-wizard).
+- Favor named exports for components and utilities.
+
 
 ## TypeScript Usage
-- Use TypeScript for all code; prefer interfaces over types
+- Use TypeScript for all code; prefer interfaces over types.
 - Avoid enums; use const objects with 'as const' assertion
 - Use functional components with TypeScript interfaces
-- Define strict types for message passing between different parts of the extension
-- Use absolute imports for all files @/...
-- Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
-- Use explicit return types for all functions
+
+
+## Authentication
+- Use supabase.auth.getUser() to get the user, use the client sub package for client components otherwise use the server package
+- do not use @supabase/auth-helpers-nextjs
+
+
+## Database
+- Use supabase for database queries and schema
+- Always use migrations to update the database schema, create them using the command `npx supabase migration new <migration-name>`
+- After creating a migration file, run `npx supabase migration up` to apply the migration and run `npx supabase gen types typescript --local > src/types/database.types.ts` to generate the type file
+- All database fields should use snake_case, the TS interface types should all have a name prefix "Db" e.g. DbReview
 
 
 ## Syntax and Formatting
 - Use "function" keyword for pure functions
-- Avoid unnecessary curly braces in conditionals
+- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
 - Use declarative JSX
 - Implement proper TypeScript discriminated unions for message types
+
 
 ## UI and Styling
 - Use Shadcn UI and Radix for components
 - use `npx shadcn@latest add <component-name>` to add new shadcn components
 - Implement Tailwind CSS for styling
 - Consider extension-specific constraints (popup dimensions, permissions)
-- Follow Material Design guidelines for Chrome extensions
 - When adding new shadcn component, document the installation command
+
 
 ## Error Handling
 - Implement proper error boundaries
@@ -119,11 +138,13 @@ ESLint: 9.9.1
 - Provide user-friendly error messages
 - Handle network failures gracefully
 
+
 ## Testing
 - Write unit tests for utilities and components
 - Implement E2E tests for critical flows
 - Test across different Chrome versions
 - Test memory usage and performance
+
 
 ## Security
 - Implement Content Security Policy
@@ -131,6 +152,7 @@ ESLint: 9.9.1
 - Handle sensitive data properly
 - Follow Chrome extension security best practices
 - Implement proper CORS handling
+
 
 ## Git Usage
 Commit Message Prefixes:
@@ -143,11 +165,13 @@ Commit Message Prefixes:
 - "test:" for adding missing tests
 - "chore:" for maintenance tasks
 
+
 ### Commit Message Rules:
 - Use lowercase for commit messages
 - Keep the summary line concise
 - Include description for non-obvious changes
 - Reference issue numbers when applicable
+
 
 ## Documentation
 - Maintain clear README with setup instructions
@@ -155,10 +179,3 @@ Commit Message Prefixes:
 - Keep manifest.json well-documented
 - Don't include comments unless it's for complex logic
 - Document permission requirements
-
-## Development Workflow
-- Use proper version control
-- Implement proper code review process
-- Test in multiple environments
-- Follow semantic versioning for releases
-- Maintain changelog
