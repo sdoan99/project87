@@ -1,7 +1,7 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-const words = ["Sort", "Filter", "Discover"];
+const words = ['Sort', 'Filter', 'Discover'];
 
 const letterVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -28,27 +28,24 @@ export const AnimatedWord = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
+      setIndex(prev => (prev + 1) % words.length);
     }, 3000); // Increased time to allow for letter animations
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <span className="inline-block text-blue-400">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={words[index]}
-          className="inline-flex"
-        >
-          {words[index].split("").map((letter, letterIndex) => (
+    <span className='inline-block text-blue-400'>
+      <AnimatePresence mode='wait'>
+        <motion.span key={words[index]} className='inline-flex'>
+          {words[index].split('').map((letter, letterIndex) => (
             <motion.span
               key={`${letter}-${letterIndex}`}
               variants={letterVariants}
               custom={letterIndex}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="inline-block"
+              initial='hidden'
+              animate='visible'
+              exit='exit'
+              className='inline-block'
             >
               {letter}
             </motion.span>

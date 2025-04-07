@@ -15,7 +15,7 @@ const TopStoriesWidget = () => {
       width: '100%',
       height: '600',
       colorTheme: 'dark',
-      locale: 'en'
+      locale: 'en',
     });
 
     if (container.current) {
@@ -33,8 +33,8 @@ const TopStoriesWidget = () => {
   }, []);
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
-      <div className="tradingview-widget-container__widget"></div>
+    <div className='tradingview-widget-container' ref={container}>
+      <div className='tradingview-widget-container__widget'></div>
     </div>
   );
 };

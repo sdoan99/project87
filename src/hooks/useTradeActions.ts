@@ -26,7 +26,7 @@ export function useTradeActions(betId?: string) {
           date: new Date(item.date).toISOString().slice(0, 16),
           quantity: item.quantity,
           price: item.price,
-          fee: item.fee || 0
+          fee: item.fee || 0,
         }));
 
         setActions(transformedActions);

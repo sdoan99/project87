@@ -4,9 +4,9 @@ export function TradingViewWidget() {
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-tickers.js";
-    script.type = "text/javascript";
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-tickers.js';
+    script.type = 'text/javascript';
     script.async = true;
     script.innerHTML = `
     {
@@ -50,8 +50,8 @@ export function TradingViewWidget() {
   }, []);
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
-      <div className="tradingview-widget-container__widget"></div>
+    <div className='tradingview-widget-container' ref={container}>
+      <div className='tradingview-widget-container__widget'></div>
     </div>
   );
 }

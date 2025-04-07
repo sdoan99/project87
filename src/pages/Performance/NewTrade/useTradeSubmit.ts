@@ -30,7 +30,7 @@ export function useTradeSubmit() {
           sector: data.sector,
           symbol: data.symbol,
           expiration: data.expiration,
-          date_time: new Date().toISOString()
+          date_time: new Date().toISOString(),
         })
         .select()
         .single();
@@ -40,19 +40,17 @@ export function useTradeSubmit() {
 
       // Insert child bets
       const childPromises = data.actions.map(action => {
-        return supabase
-          .from('bet_child')
-          .insert({
-            bet_id: betParent.id,
-            user_id: user.id,
-            strategy_id: data.strategyId,
-            position: action.type === 'BUY' ? 'LONG' : 'SHORT',
-            date_time: action.date,
-            side: action.type,
-            quantity: action.quantity,
-            price: action.price,
-            fee: action.fee
-          });
+        return supabase.from('bet_child').insert({
+          bet_id: betParent.id,
+          user_id: user.id,
+          strategy_id: data.strategyId,
+          position: action.type === 'BUY' ? 'LONG' : 'SHORT',
+          date_time: action.date,
+          side: action.type,
+          quantity: action.quantity,
+          price: action.price,
+          fee: action.fee,
+        });
       });
 
       await Promise.all(childPromises);
@@ -62,22 +60,22 @@ export function useTradeSubmit() {
         return sum + (action.type === 'BUY' ? action.quantity : -action.quantity);
       }, 0);
 
-      const avgEntry = data.actions
-        .filter(action => action.type === 'BUY')
-        .reduce((sum, action) => sum + action.price * action.quantity, 0) / 
-        data.actions.filter(action => action.type === 'BUY')
+      const avgEntry =
+        data.actions
+          .filter(action => action.type === 'BUY')
+          .reduce((sum, action) => sum + action.price * action.quantity, 0) /
+        data.actions
+          .filter(action => action.type === 'BUY')
           .reduce((sum, action) => sum + action.quantity, 0);
 
-      await supabase
-        .from('bet_parent_metrics')
-        .insert({
-          bet_id: betParent.id,
-          strategy_id: data.strategyId,
-          position: totalQuantity > 0 ? 'LONG' : 'SHORT',
-          quantity: Math.abs(totalQuantity),
-          avg_entry: avgEntry,
-          status: 'OPEN'
-        });
+      await supabase.from('bet_parent_metrics').insert({
+        bet_id: betParent.id,
+        strategy_id: data.strategyId,
+        position: totalQuantity > 0 ? 'LONG' : 'SHORT',
+        quantity: Math.abs(totalQuantity),
+        avg_entry: avgEntry,
+        status: 'OPEN',
+      });
 
       return betParent.id;
     } catch (error) {

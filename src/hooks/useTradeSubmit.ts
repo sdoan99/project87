@@ -18,25 +18,23 @@ export function useTradeSubmit() {
       const position = data.actions[0]?.type === 'BUY' ? 'LONG' : 'SHORT';
 
       // Insert all trade actions
-      const { error: actionsError } = await supabase
-        .from('bet_data')
-        .insert(
-          data.actions.map(action => ({
-            user_id: user.id,
-            strategy_id: data.strategyId,
-            bet_id: betId,
-            date: new Date(action.date).toISOString(),
-            market: data.market,
-            sector: data.sector,
-            symbol: data.symbol,
-            expiration: data.expiration,
-            position: position, // Add position field
-            side: action.type,
-            quantity: action.quantity,
-            price: action.price,
-            fee: action.fee
-          }))
-        );
+      const { error: actionsError } = await supabase.from('bet_data').insert(
+        data.actions.map(action => ({
+          user_id: user.id,
+          strategy_id: data.strategyId,
+          bet_id: betId,
+          date: new Date(action.date).toISOString(),
+          market: data.market,
+          sector: data.sector,
+          symbol: data.symbol,
+          expiration: data.expiration,
+          position: position, // Add position field
+          side: action.type,
+          quantity: action.quantity,
+          price: action.price,
+          fee: action.fee,
+        }))
+      );
 
       if (actionsError) throw actionsError;
 
@@ -54,10 +52,7 @@ export function useTradeSubmit() {
 
     try {
       // Delete existing actions
-      const { error: deleteError } = await supabase
-        .from('bet_data')
-        .delete()
-        .eq('bet_id', betId);
+      const { error: deleteError } = await supabase.from('bet_data').delete().eq('bet_id', betId);
 
       if (deleteError) throw deleteError;
 
@@ -65,25 +60,23 @@ export function useTradeSubmit() {
       const position = data.actions[0]?.type === 'BUY' ? 'LONG' : 'SHORT';
 
       // Insert updated actions
-      const { error: updateError } = await supabase
-        .from('bet_data')
-        .insert(
-          data.actions.map(action => ({
-            user_id: user.id,
-            strategy_id: data.strategyId,
-            bet_id: betId,
-            date: new Date(action.date).toISOString(),
-            market: data.market,
-            sector: data.sector,
-            symbol: data.symbol,
-            expiration: data.expiration,
-            position: position, // Add position field
-            side: action.type,
-            quantity: action.quantity,
-            price: action.price,
-            fee: action.fee
-          }))
-        );
+      const { error: updateError } = await supabase.from('bet_data').insert(
+        data.actions.map(action => ({
+          user_id: user.id,
+          strategy_id: data.strategyId,
+          bet_id: betId,
+          date: new Date(action.date).toISOString(),
+          market: data.market,
+          sector: data.sector,
+          symbol: data.symbol,
+          expiration: data.expiration,
+          position: position, // Add position field
+          side: action.type,
+          quantity: action.quantity,
+          price: action.price,
+          fee: action.fee,
+        }))
+      );
 
       if (updateError) throw updateError;
 
@@ -100,10 +93,7 @@ export function useTradeSubmit() {
     }
 
     try {
-      const { error } = await supabase
-        .from('bet_data')
-        .delete()
-        .eq('bet_id', betId);
+      const { error } = await supabase.from('bet_data').delete().eq('bet_id', betId);
 
       if (error) throw error;
     } catch (error) {

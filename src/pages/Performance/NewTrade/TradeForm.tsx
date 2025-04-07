@@ -14,12 +14,12 @@ interface TradeFormProps {
   initialActions?: TradeAction[];
 }
 
-export function TradeForm({ 
-  onClose, 
-  onSubmit, 
+export function TradeForm({
+  onClose,
+  onSubmit,
   onDelete,
   initialTrade,
-  initialActions 
+  initialActions,
 }: TradeFormProps) {
   const {
     market,
@@ -35,7 +35,7 @@ export function TradeForm({
     handleRemoveAction,
     handleUpdateAction,
     isValid,
-    error
+    error,
   } = useTradeForm(initialTrade, initialActions);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,7 +48,7 @@ export function TradeForm({
         sector,
         symbol,
         expiration,
-        actions
+        actions,
       };
 
       await onSubmit(formData);
@@ -58,36 +58,31 @@ export function TradeForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className='space-y-8'>
       {error && (
-        <div className="bg-red-500/10 border border-red-500 text-red-500 rounded-lg p-3">
+        <div className='bg-red-500/10 border border-red-500 text-red-500 rounded-lg p-3'>
           {error}
         </div>
       )}
 
-      <div className="grid grid-cols-4 gap-4 items-end">
+      <div className='grid grid-cols-4 gap-4 items-end'>
         <MarketSelect value={market} onChange={setMarket} />
-        <TradeInputRow 
-          label="Sector" 
-          placeholder="Enter sector" 
+        <TradeInputRow
+          label='Sector'
+          placeholder='Enter sector'
           value={sector}
-          onChange={(e) => setSector(e.target.value)}
+          onChange={e => setSector(e.target.value)}
         />
-        <TradeInputRow 
-          label="Symbol" 
-          placeholder="Enter symbol" 
+        <TradeInputRow
+          label='Symbol'
+          placeholder='Enter symbol'
           value={symbol}
-          onChange={(e) => setSymbol(e.target.value)}
+          onChange={e => setSymbol(e.target.value)}
           required
         />
         <div>
-          <label className="block text-sm font-medium text-gray-400 mb-1.5">
-            Expiration
-          </label>
-          <DateTimeField
-            value={expiration}
-            onChange={setExpiration}
-          />
+          <label className='block text-sm font-medium text-gray-400 mb-1.5'>Expiration</label>
+          <DateTimeField value={expiration} onChange={setExpiration} />
         </div>
       </div>
 
@@ -98,27 +93,27 @@ export function TradeForm({
         onUpdateAction={handleUpdateAction}
       />
 
-      <div className="flex justify-between pt-4">
-        <div className="flex gap-2">
+      <div className='flex justify-between pt-4'>
+        <div className='flex gap-2'>
           <button
-            type="button"
-            className="px-6 py-2.5 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors"
+            type='button'
+            className='px-6 py-2.5 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors'
             onClick={onClose}
           >
             Cancel
           </button>
           {initialTrade && onDelete && (
             <button
-              type="button"
+              type='button'
               onClick={onDelete}
-              className="px-6 py-2.5 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors"
+              className='px-6 py-2.5 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors'
             >
               Delete
             </button>
           )}
         </div>
         <button
-          type="submit"
+          type='submit'
           disabled={!isValid}
           className={`px-6 py-2.5 rounded-lg transition-colors ${
             isValid

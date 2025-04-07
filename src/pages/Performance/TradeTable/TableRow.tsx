@@ -20,35 +20,32 @@ export function TableRow({ strategy }: TableRowProps) {
   };
 
   return (
-    <tr 
-      className="hover:bg-gray-800/50 transition-colors cursor-pointer" 
-      onClick={handleRowClick}
-    >
-      <td className="px-4 py-3 text-sm font-medium whitespace-nowrap">
-        <Link 
+    <tr className='hover:bg-gray-800/50 transition-colors cursor-pointer' onClick={handleRowClick}>
+      <td className='px-4 py-3 text-sm font-medium whitespace-nowrap'>
+        <Link
           to={`/performance/${encodeURIComponent(strategy.name)}`}
-          className="text-blue-400 hover:text-blue-300 transition-colors"
-          onClick={(e) => e.stopPropagation()} // Prevent row click when clicking the link
+          className='text-blue-400 hover:text-blue-300 transition-colors'
+          onClick={e => e.stopPropagation()} // Prevent row click when clicking the link
         >
           {strategy.name}
         </Link>
       </td>
-      <td className="px-4 py-3 text-sm text-gray-300 whitespace-nowrap">
+      <td className='px-4 py-3 text-sm text-gray-300 whitespace-nowrap'>
         {formatCurrency(strategy.totalPnl)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-300 whitespace-nowrap">
+      <td className='px-4 py-3 text-sm text-gray-300 whitespace-nowrap'>
         {formatPercentage(strategy.winRate)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-300 whitespace-nowrap">
+      <td className='px-4 py-3 text-sm text-gray-300 whitespace-nowrap'>
         {formatCurrency(strategy.avgWin)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-300 whitespace-nowrap">
+      <td className='px-4 py-3 text-sm text-gray-300 whitespace-nowrap'>
         {formatCurrency(strategy.avgLoss)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-300 whitespace-nowrap">
+      <td className='px-4 py-3 text-sm text-gray-300 whitespace-nowrap'>
         {strategy.profitFactor.toFixed(2)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-300 whitespace-nowrap">
+      <td className='px-4 py-3 text-sm text-gray-300 whitespace-nowrap'>
         {formatCurrency(strategy.avgPnlDay)}
       </td>
       <PerformanceCell value={strategy.performance.h24} />

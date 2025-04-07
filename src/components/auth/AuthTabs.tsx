@@ -7,23 +7,19 @@ interface AuthTabsProps {
 
 export default function AuthTabs({ activeTab }: AuthTabsProps) {
   return (
-    <div className="flex border-b border-gray-700 mb-6">
+    <div className='flex border-b border-gray-700 mb-6'>
       <Link
-        to="/signin"
+        to='/signin'
         className={`pb-2 px-4 ${
-          activeTab === 'signin'
-            ? 'text-blue-500 border-b-2 border-blue-500'
-            : 'text-gray-400'
+          activeTab === 'signin' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-400'
         }`}
       >
         Sign In
       </Link>
       <Link
-        to="/register"
+        to='/register'
         className={`pb-2 px-4 ${
-          activeTab === 'register'
-            ? 'text-blue-500 border-b-2 border-blue-500'
-            : 'text-gray-400'
+          activeTab === 'register' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-400'
         }`}
       >
         Create Account

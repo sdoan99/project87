@@ -41,7 +41,7 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
 
       const data = {
         ...formData,
-        strategyId: profile.id
+        strategyId: profile.id,
       };
 
       if (initialTrade?.betId) {
@@ -49,7 +49,7 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
       } else {
         await submitTrade(data);
       }
-      
+
       onSubmitSuccess?.(); // Call the success callback
       onClose();
     } catch (error) {
@@ -71,32 +71,32 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
 
   if (initialTrade && loading) {
     return (
-      <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-        <div className="bg-gray-900/95 rounded-xl w-full max-w-2xl backdrop-blur-sm p-6">
-          <div className="text-center text-gray-400">Loading trade details...</div>
+      <div className='fixed inset-0 bg-black/80 flex items-center justify-center z-50'>
+        <div className='bg-gray-900/95 rounded-xl w-full max-w-2xl backdrop-blur-sm p-6'>
+          <div className='text-center text-gray-400'>Loading trade details...</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-      <div ref={modalRef} className="bg-gray-900/95 rounded-xl w-full max-w-2xl backdrop-blur-sm">
-        <div className="flex items-center justify-between p-6">
-          <h2 className="text-xl font-semibold text-gray-200">
+    <div className='fixed inset-0 bg-black/80 flex items-center justify-center z-50'>
+      <div ref={modalRef} className='bg-gray-900/95 rounded-xl w-full max-w-2xl backdrop-blur-sm'>
+        <div className='flex items-center justify-between p-6'>
+          <h2 className='text-xl font-semibold text-gray-200'>
             {initialTrade ? 'Edit Trade' : 'New Trade'}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors rounded-lg p-2 hover:bg-gray-800"
+            className='text-gray-400 hover:text-white transition-colors rounded-lg p-2 hover:bg-gray-800'
           >
-            <X className="w-5 h-5" />
+            <X className='w-5 h-5' />
           </button>
         </div>
 
-        <div className="p-6 pt-0">
-          <TradeForm 
-            onClose={onClose} 
+        <div className='p-6 pt-0'>
+          <TradeForm
+            onClose={onClose}
             onSubmit={handleSubmit}
             onDelete={handleDelete}
             initialTrade={initialTrade}

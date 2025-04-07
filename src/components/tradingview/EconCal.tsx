@@ -15,7 +15,7 @@ const EconCalWidget = () => {
       height: '600',
       locale: 'en',
       importanceFilter: '-1,0,1',
-      countryFilter: 'ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu'
+      countryFilter: 'ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu',
     });
 
     if (container.current) {
@@ -33,8 +33,8 @@ const EconCalWidget = () => {
   }, []);
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
-      <div className="tradingview-widget-container__widget"></div>
+    <div className='tradingview-widget-container' ref={container}>
+      <div className='tradingview-widget-container__widget'></div>
     </div>
   );
 };

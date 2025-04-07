@@ -35,35 +35,37 @@ export function TradeRow({ trade, onClick }: TradeRowProps) {
   };
 
   return (
-    <tr 
-      className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors text-white cursor-pointer" 
+    <tr
+      className='border-b border-gray-800 hover:bg-gray-800/50 transition-colors text-white cursor-pointer'
       onClick={handleRowClick}
     >
-      <td className="px-4 py-3">{trade.date}</td>
-      <td className="px-4 py-3">
-        <span className="text-blue-400">{trade.symbol}</span>
+      <td className='px-4 py-3'>{trade.date}</td>
+      <td className='px-4 py-3'>
+        <span className='text-blue-400'>{trade.symbol}</span>
       </td>
-      <td className="px-4 py-3">
+      <td className='px-4 py-3'>
         <span className={`inline-flex items-center ${getStatusColor(trade.status)}`}>
-          <span className="w-2 h-2 rounded-full mr-2 bg-current" />
+          <span className='w-2 h-2 rounded-full mr-2 bg-current' />
           {trade.status}
         </span>
       </td>
-      <td className="px-4 py-3">
+      <td className='px-4 py-3'>
         {trade.side === 'long' ? (
-          <ArrowUpRight className="w-4 h-4 text-green-400" />
+          <ArrowUpRight className='w-4 h-4 text-green-400' />
         ) : (
-          <ArrowDownRight className="w-4 h-4 text-red-400" />
+          <ArrowDownRight className='w-4 h-4 text-red-400' />
         )}
       </td>
-      <td className="px-4 py-3 text-right">{trade.qty}</td>
-      <td className="px-4 py-3 text-right">{formatCurrency(trade.entry)}</td>
-      <td className="px-4 py-3 text-right">{trade.exit ? formatCurrency(trade.exit) : '-'}</td>
-      <td className="px-4 py-3 text-right">{formatCurrency(trade.entryTotal)}</td>
-      <td className="px-4 py-3 text-right">{trade.exitTotal ? formatCurrency(trade.exitTotal) : '-'}</td>
-      <td className="px-4 py-3 text-right">{trade.position || '-'}</td>
-      <td className="px-4 py-3 text-center">
-        {trade.hold ? <span className="text-blue-400">{trade.hold}</span> : '-'}
+      <td className='px-4 py-3 text-right'>{trade.qty}</td>
+      <td className='px-4 py-3 text-right'>{formatCurrency(trade.entry)}</td>
+      <td className='px-4 py-3 text-right'>{trade.exit ? formatCurrency(trade.exit) : '-'}</td>
+      <td className='px-4 py-3 text-right'>{formatCurrency(trade.entryTotal)}</td>
+      <td className='px-4 py-3 text-right'>
+        {trade.exitTotal ? formatCurrency(trade.exitTotal) : '-'}
+      </td>
+      <td className='px-4 py-3 text-right'>{trade.position || '-'}</td>
+      <td className='px-4 py-3 text-center'>
+        {trade.hold ? <span className='text-blue-400'>{trade.hold}</span> : '-'}
       </td>
       <td className={`px-4 py-3 text-right ${getReturnColor(trade.return)}`}>
         {trade.return ? formatCurrency(trade.return) : '-'}

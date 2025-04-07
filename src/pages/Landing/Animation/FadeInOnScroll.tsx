@@ -8,11 +8,7 @@ interface FadeInOnScrollProps {
   className?: string;
 }
 
-const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({ 
-  children, 
-  delay = 0,
-  className = "" 
-}) => {
+const FadeInOnScroll: React.FC<FadeInOnScrollProps> = ({ children, delay = 0, className = '' }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,

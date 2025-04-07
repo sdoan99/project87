@@ -11,10 +11,7 @@ export function FilterButton({ label, active = false, onClick }: FilterButtonPro
     <button
       onClick={onClick}
       className={`px-4 py-2 rounded-full text-sm transition-all
-        ${active 
-          ? 'bg-blue-600 text-white' 
-          : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-        }`}
+        ${active ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
     >
       {label}
     </button>

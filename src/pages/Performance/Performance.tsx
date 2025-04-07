@@ -16,25 +16,25 @@ export default function Performance() {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen">
-      <div className="container mx-auto px-4 pt-20">
-        <div className="flex gap-8">
+    <div className='bg-gray-900 min-h-screen'>
+      <div className='container mx-auto px-4 pt-20'>
+        <div className='flex gap-8'>
           {/* Left sidebar with InfoPanel - Pass refreshTrigger */}
-          <div className="w-[320px] flex-shrink-0">
+          <div className='w-[320px] flex-shrink-0'>
             <InfoPanel refreshTrigger={refreshTrigger} />
           </div>
-          
+
           {/* Main content area */}
-          <div className="flex-1 space-y-8">
+          <div className='flex-1 space-y-8'>
             {/* TradingView Chart */}
-            <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <div className='bg-gray-800 rounded-lg p-4 border border-gray-700'>
               <TVAdvChart />
             </div>
 
             {/* Trade Table Section */}
-            <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-white">Trade Overview</h2>
+            <div className='bg-gray-800 rounded-lg p-4 border border-gray-700'>
+              <div className='flex items-center justify-between mb-6'>
+                <h2 className='text-xl font-semibold text-white'>Trade Overview</h2>
                 <AddTradeButton onClick={() => setShowNewTrade(true)} />
               </div>
               <TradeTable refreshTrigger={refreshTrigger} />
@@ -45,10 +45,7 @@ export default function Performance() {
 
       {/* New Trade Modal */}
       {showNewTrade && (
-        <NewTrade 
-          onClose={() => setShowNewTrade(false)} 
-          onSubmitSuccess={handleTradeSubmit}
-        />
+        <NewTrade onClose={() => setShowNewTrade(false)} onSubmitSuccess={handleTradeSubmit} />
       )}
     </div>
   );

@@ -5,16 +5,16 @@ export function useMediaQuery(query: string) {
 
   useEffect(() => {
     const media = window.matchMedia(query);
-    
+
     // Set initial value
     setMatches(media.matches);
 
     // Create listener
     const listener = (e: MediaQueryListEvent) => setMatches(e.matches);
-    
+
     // Add listener
     media.addEventListener('change', listener);
-    
+
     // Clean up
     return () => media.removeEventListener('change', listener);
   }, [query]);

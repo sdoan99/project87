@@ -14,14 +14,14 @@ interface AuthState {
   setSession: (session: any) => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
+export const useAuthStore = create<AuthState>(set => ({
   user: null,
   session: null,
   loading: true,
   signIn: async (identifier: string, password: string) => {
     // First, check if the identifier is an email
     const isEmail = identifier.includes('@');
-    
+
     if (isEmail) {
       // If it's an email, try direct login
       const { error } = await supabase.auth.signInWithPassword({
@@ -65,7 +65,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       email,
       password,
     });
-    
+
     if (signUpError) throw signUpError;
     if (!data.user) throw new Error('User creation failed');
 
@@ -82,6 +82,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     if (error) throw error;
     set({ user: null, session: null });
   },
-  setUser: (user) => set({ user }),
-  setSession: (session) => set({ session }),
+  setUser: user => set({ user }),
+  setSession: session => set({ session }),
 }));

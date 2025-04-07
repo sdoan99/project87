@@ -8,16 +8,16 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export function Button({ 
+export function Button({
   variant = 'default',
   icon: Icon,
   children,
   className = '',
-  ...props 
+  ...props
 }: ButtonProps) {
   const variants = {
     default: 'bg-gray-800 hover:bg-gray-700 text-gray-200',
-    link: 'hover:bg-gray-800/50 text-gray-400 hover:text-gray-300'
+    link: 'hover:bg-gray-800/50 text-gray-400 hover:text-gray-300',
   };
 
   return (
@@ -25,7 +25,7 @@ export function Button({
       className={`inline-flex items-center justify-center rounded-md transition-colors ${variants[variant]} ${className}`}
       {...props}
     >
-      {Icon && <Icon className="w-4 h-4" />}
+      {Icon && <Icon className='w-4 h-4' />}
       {children}
     </button>
   );

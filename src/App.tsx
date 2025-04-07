@@ -26,25 +26,25 @@ export default function App() {
       <AuthProvider>
         <SymbolProvider>
           <Router>
-            <div className="min-h-screen bg-gray-900 flex flex-col">
+            <div className='min-h-screen bg-gray-900 flex flex-col'>
               <Header />
-              <main className="flex-1">
+              <main className='flex-1'>
                 <Routes>
-                  <Route path="/" element={<Landing />} />
-                  <Route path="/strategy" element={<Strategy />} />
-                  <Route path="/markets" element={<Markets />} />
-                  <Route path="/news" element={<News />} />
-                  <Route path="/education" element={<Education />} />
-                  <Route path="/community" element={<Community />} />
-                  <Route path="/price" element={<Price />} />
-                  <Route path="/signin" element={<SignIn />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/performance/:strategyName" element={<Performance />} />
-                  <Route path="/create" element={<Create />} />
-                  <Route path="/following" element={<Following />} />
-                  <Route path="/subscriptions" element={<Subscription />} />
-                  <Route path="/support" element={<Support />} />
-                  <Route path="/docs" element={<Documentation />} />
+                  <Route path='/' element={<Landing />} />
+                  <Route path='/strategy' element={<Strategy />} />
+                  <Route path='/markets' element={<Markets />} />
+                  <Route path='/news' element={<News />} />
+                  <Route path='/education' element={<Education />} />
+                  <Route path='/community' element={<Community />} />
+                  <Route path='/price' element={<Price />} />
+                  <Route path='/signin' element={<SignIn />} />
+                  <Route path='/register' element={<Register />} />
+                  <Route path='/performance/:strategyName' element={<Performance />} />
+                  <Route path='/create' element={<Create />} />
+                  <Route path='/following' element={<Following />} />
+                  <Route path='/subscriptions' element={<Subscription />} />
+                  <Route path='/support' element={<Support />} />
+                  <Route path='/docs' element={<Documentation />} />
                 </Routes>
               </main>
               <Footerdemo />

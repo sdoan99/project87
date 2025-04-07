@@ -5,16 +5,16 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
   const [market, setMarket] = useState('STOCK');
   const [sector, setSector] = useState('');
   const [symbol, setSymbol] = useState('');
-  const [expiration, setExpiration] = useState(
-    new Date().toISOString().slice(0, 16)
-  );
-  const [actions, setActions] = useState<TradeAction[]>([{
-    type: 'BUY',
-    date: new Date().toISOString().slice(0, 16),
-    quantity: 0,
-    price: 0,
-    fee: 0
-  }]);
+  const [expiration, setExpiration] = useState(new Date().toISOString().slice(0, 16));
+  const [actions, setActions] = useState<TradeAction[]>([
+    {
+      type: 'BUY',
+      date: new Date().toISOString().slice(0, 16),
+      quantity: 0,
+      price: 0,
+      fee: 0,
+    },
+  ]);
 
   // Initialize form with existing trade data
   useEffect(() => {
@@ -32,8 +32,8 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
         date: new Date().toISOString().slice(0, 16),
         quantity: 0,
         price: 0,
-        fee: 0
-      }
+        fee: 0,
+      },
     ]);
   };
 
@@ -44,9 +44,7 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
   };
 
   const handleUpdateAction = (index: number, field: keyof TradeAction, value: any) => {
-    setActions(actions.map((action, i) => 
-      i === index ? { ...action, [field]: value } : action
-    ));
+    setActions(actions.map((action, i) => (i === index ? { ...action, [field]: value } : action)));
   };
 
   const { isValid, error } = useMemo(() => {
@@ -58,9 +56,7 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
       return { isValid: false, error: 'At least one trade action is required' };
     }
 
-    const hasInvalidAction = actions.some(action => 
-      action.quantity <= 0 || action.price <= 0
-    );
+    const hasInvalidAction = actions.some(action => action.quantity <= 0 || action.price <= 0);
 
     if (hasInvalidAction) {
       return { isValid: false, error: 'All quantities and prices must be greater than 0' };
@@ -83,6 +79,6 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
     handleRemoveAction,
     handleUpdateAction,
     isValid,
-    error
+    error,
   };
 }

@@ -27,21 +27,17 @@ export function useSortableTable(data: StrategyData[]) {
         const perfKey = sortConfig.key.split('.')[1] as keyof typeof a.performance;
         const aPerf = a.performance[perfKey];
         const bPerf = b.performance[perfKey];
-        
-        return sortConfig.direction === 'asc' 
-          ? (aPerf < bPerf ? -1 : 1)
-          : (aPerf > bPerf ? -1 : 1);
+
+        return sortConfig.direction === 'asc' ? (aPerf < bPerf ? -1 : 1) : aPerf > bPerf ? -1 : 1;
       }
 
-      return sortConfig.direction === 'asc'
-        ? (aValue < bValue ? -1 : 1)
-        : (aValue > bValue ? -1 : 1);
+      return sortConfig.direction === 'asc' ? (aValue < bValue ? -1 : 1) : aValue > bValue ? -1 : 1;
     });
   }, [data, sortConfig]);
 
   const requestSort = (key: keyof StrategyData) => {
     let direction: SortDirection = 'asc';
-    
+
     if (sortConfig.key === key) {
       if (sortConfig.direction === 'asc') {
         direction = 'desc';

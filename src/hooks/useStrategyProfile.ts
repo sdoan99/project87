@@ -38,11 +38,12 @@ export function useStrategyProfile(strategyName?: string, refreshTrigger = 0) {
       }
 
       setLoading(true);
-      
+
       // Join strategy_profile with strategy_metrics using strategy_id
       const { data, error } = await supabase
         .from('strategy_profile')
-        .select(`
+        .select(
+          `
           *,
           strategy_metrics!inner(
             total_pnl,
@@ -52,7 +53,8 @@ export function useStrategyProfile(strategyName?: string, refreshTrigger = 0) {
             profit_factor,
             avg_pnl_per_day
           )
-        `)
+        `
+        )
         .eq('name', strategyName)
         .single();
 
@@ -61,7 +63,7 @@ export function useStrategyProfile(strategyName?: string, refreshTrigger = 0) {
       // Transform the joined data to match our StrategyProfile interface
       const transformedData: StrategyProfile = {
         ...data,
-        strategy_metrics: data.strategy_metrics[0] // Get the first (and should be only) metrics record
+        strategy_metrics: data.strategy_metrics[0], // Get the first (and should be only) metrics record
       };
 
       setProfile(transformedData);

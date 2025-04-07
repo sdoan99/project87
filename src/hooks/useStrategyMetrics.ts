@@ -10,9 +10,7 @@ export function useStrategyMetrics() {
   useEffect(() => {
     async function fetchStrategyMetrics() {
       try {
-        const { data, error } = await supabase
-          .from('strategy_metrics')
-          .select(`
+        const { data, error } = await supabase.from('strategy_metrics').select(`
             id,
             strategy_id,
             name,
@@ -39,18 +37,18 @@ export function useStrategyMetrics() {
           avgPnlDay: item.avg_pnl_per_day || 0,
           performance: {
             h24: Math.random() * 20 - 10, // Random value between -10% and +10%
-            d7: Math.random() * 30 - 15,  // Random value between -15% and +15%
+            d7: Math.random() * 30 - 15, // Random value between -15% and +15%
             d28: Math.random() * 40 - 20, // Random value between -20% and +20%
-            m3: Math.random() * 50 - 25,  // Random value between -25% and +25%
-            m6: Math.random() * 60 - 30,  // Random value between -30% and +30%
-            y1: Math.random() * 100 - 50  // Random value between -50% and +50%
-          }
+            m3: Math.random() * 50 - 25, // Random value between -25% and +25%
+            m6: Math.random() * 60 - 30, // Random value between -30% and +30%
+            y1: Math.random() * 100 - 50, // Random value between -50% and +50%
+          },
         }));
 
         // If no data from Supabase, add some mock data
         if (transformedData.length === 0) {
           transformedData.push({
-            name: "BTC Momentum",
+            name: 'BTC Momentum',
             totalPnl: 125000,
             winRate: 68.5,
             avgWin: 2500,
@@ -63,8 +61,8 @@ export function useStrategyMetrics() {
               d28: 15.7,
               m3: 22.4,
               m6: 45.2,
-              y1: 76.8
-            }
+              y1: 76.8,
+            },
           });
         }
 

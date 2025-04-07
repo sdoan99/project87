@@ -24,11 +24,11 @@ export function TableHeader({ onSort, sortConfig }: TableHeaderProps) {
     { label: '28D', key: 'performance.d28' },
     { label: '3M', key: 'performance.m3' },
     { label: '6M', key: 'performance.m6' },
-    { label: '1Y', key: 'performance.y1' }
+    { label: '1Y', key: 'performance.y1' },
   ];
 
   return (
-    <thead className="bg-gray-800">
+    <thead className='bg-gray-800'>
       <tr>
         {headers.map(({ label, key }) => (
           <SortableHeader

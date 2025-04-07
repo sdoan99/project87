@@ -34,7 +34,7 @@ export function useTradeData(strategyId?: string) {
         position: item.qty_rem,
         hold: item.hold,
         return: item.return,
-        returnPercentage: item.return_percent
+        returnPercentage: item.return_percent,
       }));
 
       setTrades(transformedTrades);
