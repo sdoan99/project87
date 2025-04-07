@@ -1,4 +1,18 @@
-* 45c08f5  (HEAD -> main) commit 2025-04-07 11:28:31 -0600| 
+* 7c134c5  (HEAD -> main) commit 2025-04-07 15:18:22 -0600| 
+|  docs/PlaywrightBestPractices.md                   |   0
+|  docs/PlaywrightGuidelines.md                      |  81 -----------
+|  docs/PlaywrightRules.md                           |   0
+|  docs/PlaywrightTests.md                           |   0
+|  git_commit_logs.txt                               |   9 +-
+|  src/types/errors.ts                               |  16 +++
+|  test-results/.last-run.json                       |   4 -
+|  .../trace.zip                                     | Bin 0 -> 12058678 bytes
+|  tests/auth/auth.spec.ts                           | 115 ----------------
+|  tests/auth/authentication.spec.ts                 | 141 ++++++++++++++++++++
+|  tests/pages/AuthPage.ts                           |  97 ++++++++++++++
+|  11 files changed, 262 insertions(+), 201 deletions(-)
+
+* 45c08f5  commit 2025-04-07 11:28:31 -0600| 
 |  .windsurfrules                  |   3 +-
 |  docs/PlaywrightGuidelines.md    |   2 +-
 |  docs/platform_file_structure.md |   5 --

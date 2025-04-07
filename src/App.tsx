@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from './components/auth/AuthProvider';
 import { SymbolProvider } from './context/SymbolContext';
-import Header from './components/layout/Header';
+import { Header1 as Header } from './components/navigation/header';
 import { Footerdemo } from './components/ui/footer-section';
 import Landing from './pages/Landing/Landing';
 import Strategy from './pages/Strategy/Strategy';
