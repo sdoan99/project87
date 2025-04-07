@@ -1,4 +1,11 @@
-* 7c134c5  (HEAD -> main) commit 2025-04-07 15:18:22 -0600| 
+* 76edbac  (HEAD -> main) nav bar duplication fix 2025-04-07 15:43:39 -0600| 
+|  git_commit_logs.txt                          | 16 +++++++++++++++-
+|  src/App.tsx                                  |  2 +-
+|  src/components/layout/Header.tsx             |  6 ------
+|  src/components/{ui => navigation}/header.tsx |  0
+|  4 files changed, 16 insertions(+), 8 deletions(-)
+
+* 7c134c5  commit 2025-04-07 15:18:22 -0600| 
 |  docs/PlaywrightBestPractices.md                   |   0
 |  docs/PlaywrightGuidelines.md                      |  81 -----------
 |  docs/PlaywrightRules.md                           |   0
