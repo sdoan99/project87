@@ -1,4 +1,10 @@
-* d3dd713  (HEAD -> main) chore: update windsurf rules and git commit logs 2025-04-07 08:43:06 -0600| 
+* aa496c5  (HEAD -> main) committed 2025-04-07 10:11:41 -0600| 
+|  .windsurfrules               | 65 ++++++++++++++++++++-------------
+|  docs/PlaywrightGuidelines.md | 81 ++++++++++++++++++++++++++++++++++++++++++
+|  git_commit_logs.txt          |  9 +++--
+|  3 files changed, 129 insertions(+), 26 deletions(-)
+
+* d3dd713  chore: update windsurf rules and git commit logs 2025-04-07 08:43:06 -0600| 
 |  .windsurfrules      | 12 +++---------
 |  git_commit_logs.txt | 10 ++++++++--
 |  2 files changed, 11 insertions(+), 11 deletions(-)
