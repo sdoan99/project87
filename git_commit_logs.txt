@@ -1,4 +1,39 @@
-* 33a6c6b  (HEAD -> main) docs: consolidate Playwright testing documentation and update auth tests 2025-04-07 21:35:15 -0600| 
+* b858b1e  (HEAD -> feature/hyvor-talk) feat: add Hyvor Talk integration for comments and newsletter 2025-04-08 14:07:59 -0600| 
+|  .env                                              |     2 +
+|  git_commit_logs.txt                               |    48 +-
+|  .../8ede0af2857d5241ba81bc35295f661386c7bc04.zip  |   Bin 0 -> 4750245 bytes
+|  playwright-report/index.html                      | 17659 +-----------------
+|  .../trace/assets/codeMirrorModule-DpJ-EmBQ.js     |    24 +
+|  .../trace/assets/defaultSettingsView-DTenqiGw.js  |   259 +
+|  .../trace/codeMirrorModule.C3UTv-Ge.css           |     1 +
+|  playwright-report/trace/codicon.DCmgc-ay.ttf      |   Bin 0 -> 80340 bytes
+|  .../trace/defaultSettingsView.5fN5lw10.css        |     1 +
+|  playwright-report/trace/index.CFOW-Ezb.css        |     1 +
+|  playwright-report/trace/index.CUq7VgrV.js         |     2 +
+|  playwright-report/trace/index.html                |    43 +
+|  playwright-report/trace/playwright-logo.svg       |     9 +
+|  playwright-report/trace/snapshot.html             |    21 +
+|  playwright-report/trace/sw.bundle.js              |     3 +
+|  playwright-report/trace/uiMode.BatfzHMG.css       |     1 +
+|  playwright-report/trace/uiMode.CHJSAD7F.js        |     5 +
+|  playwright-report/trace/uiMode.html               |    17 +
+|  playwright-report/trace/xtermModule.Beg8tuEN.css  |    32 +
+|  playwright.config.ts                              |    28 +
+|  src/components/comments/HyvorNewsletter.tsx       |    26 +
+|  src/components/comments/HyvorTalk.tsx             |    44 +
+|  src/pages/Community/Community.tsx                 |     6 +
+|  .../Performance/InfoPanel/strategy-details.tsx    |     6 +
+|  src/types/hyvor.d.ts                              |    17 +
+|  .../example-basic-test-chromium/trace.zip         |   Bin 0 -> 4750245 bytes
+|  .../trace.zip                                     |   Bin 10595983 -> 0 bytes
+|  .../trace.zip                                     |   Bin 10332930 -> 0 bytes
+|  test-results/tests-example-basic-test/trace.zip   |   Bin 4857359 -> 0 bytes
+|  tests/auth/authentication.spec.ts                 |   147 -
+|  tests/hyvor-talk.spec.ts                          |    98 +
+|  vite.config.ts                                    |     4 +
+|  32 files changed, 747 insertions(+), 17757 deletions(-)
+
+* 33a6c6b  (main) docs: consolidate Playwright testing documentation and update auth tests 2025-04-07 21:35:15 -0600| 
 |  docs/PlaywrightBestPractices.md                   |   0
 |  docs/PlaywrightGuidelines.md                      |  81 ++++++++++++++++++++
 |  docs/PlaywrightRules.md                           |   0
