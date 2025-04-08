@@ -18,15 +18,15 @@ export class AuthPage {
     this.page = page;
     this.usernameInput = page.getByLabel('Username');
     this.emailInput = page.getByLabel('Email');
-    this.passwordInput = page.getByLabel('Password');
-    this.confirmPasswordInput = page.getByLabel('Confirm your password');
+    this.passwordInput = page.getByPlaceholder('Create a password');
+    this.confirmPasswordInput = page.getByPlaceholder('Confirm your password');
     this.signInButton = page.locator('form').getByRole('button', { name: 'Sign In' });
     this.registerButton = page.getByRole('button', { name: 'Create Account' });
     this.resetPasswordLink = page.getByRole('link', { name: 'Reset Password' });
     this.profileButton = page.locator('.profile-button').filter({ has: page.getByRole('img', { name: 'User' }) }).filter({ has: page.getByText('username') });
     this.logoutButton = page.getByRole('button', { name: 'Sign out' });
     this.errorMessage = page.getByRole('alert').filter({ hasText: /error/i });
-    this.successMessage = page.getByRole('alert').filter({ hasText: /success/i });
+    this.successMessage = page.getByText('Account created successfully! Thanks for joining us!');
   }
 
   async goto(pagePath: string) {
@@ -85,8 +85,7 @@ export class AuthPage {
   }
 
   async verifyLoggedIn() {
-    await expect(this.page.getByRole('img', { name: 'User' })).toBeVisible();
-    await expect(this.page.getByText('Loading...')).toBeVisible();
+    await expect(this.profileButton).toBeVisible();
     await expect(this.page).toHaveURL(/\/$/);
   }
 

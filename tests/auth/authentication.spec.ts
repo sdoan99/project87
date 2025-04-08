@@ -4,9 +4,15 @@ import { AuthPage } from '../pages/AuthPage';
 test.describe('Authentication System', () => {
   let authPage: AuthPage;
   const testUsername = `testuser-${Date.now()}`;
+  const testEmail = `test-${Date.now()}@example.com`;
+  const testPassword = 'TestPassword123!';
+  const testPasswordConfirmation = testPassword;
+  
+  /*
   const testEmail = '000@yahoo.com';
   const testPassword = '000000';
   const testPasswordConfirmation = '000000';
+  */
 
   test.beforeEach(async ({ page }) => {
     test.setTimeout(60000);

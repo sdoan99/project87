@@ -16,6 +16,7 @@ export default function Register() {
     confirmPassword: '',
   });
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +26,10 @@ export default function Register() {
     }
     try {
       await signUp(formData.email, formData.password, formData.username);
-      navigate('/');
+      setSuccess('Account created successfully! Thanks for joining us!');
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
     } catch (err: any) {
       setError(err.message);
     }
@@ -38,6 +42,11 @@ export default function Register() {
         {error && (
           <div className='bg-red-500/10 border border-red-500 text-red-500 rounded-md p-3 text-sm'>
             {error}
+          </div>
+        )}
+        {success && (
+          <div className='bg-green-500/10 border border-green-500 text-green-500 rounded-md p-3 text-sm'>
+            {success}
           </div>
         )}
 
