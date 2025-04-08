@@ -1,4 +1,5 @@
 import React from 'react';
+import { HyvorNewsletter } from '../../components/comments/HyvorNewsletter';
 
 export default function Community() {
   return (
@@ -15,6 +16,11 @@ export default function Community() {
           We're still balancing our books—and our lives. Launching soon to stop your budget from
           ghosting you. Thanks for bearing with US.
         </p>
+
+        {/* Add newsletter subscription form */}
+        <div className="max-w-2xl mx-auto">
+          <HyvorNewsletter />
+        </div>
       </div>
     </div>
   );

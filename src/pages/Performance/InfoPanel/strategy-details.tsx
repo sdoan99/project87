@@ -1,15 +1,18 @@
 import { FC } from 'react';
+import { HyvorTalk } from '../../../components/comments/HyvorTalk';
 
 interface StrategyDetailsProps {
   marketTypes: string;
   categories: string;
   timeframes: string;
+  isPrivate?: boolean;
 }
 
 export const StrategyDetails: FC<StrategyDetailsProps> = ({
   marketTypes,
   categories,
   timeframes,
+  isPrivate = false,
 }) => {
   return (
     <div>
@@ -28,6 +31,9 @@ export const StrategyDetails: FC<StrategyDetailsProps> = ({
           <div className='ml-4 text-purple-400'>{timeframes}</div>
         </div>
       </div>
+      
+      {/* Add Hyvor Talk comments section */}
+      <HyvorTalk isPrivate={isPrivate} />
     </div>
   );
 };
