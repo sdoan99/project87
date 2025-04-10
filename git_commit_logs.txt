@@ -1,4 +1,41 @@
-* 76edbac  (HEAD -> main) nav bar duplication fix 2025-04-07 15:43:39 -0600| 
+* 33a6c6b  (HEAD -> main) docs: consolidate Playwright testing documentation and update auth tests 2025-04-07 21:35:15 -0600| 
+|  docs/PlaywrightBestPractices.md                   |   0
+|  docs/PlaywrightGuidelines.md                      |  81 ++++++++++++++++++++
+|  docs/PlaywrightRules.md                           |   0
+|  docs/PlaywrightTests.md                           |   0
+|  src/pages/Auth/Register.tsx                       |  11 ++-
+|  .../trace.zip                                     | Bin 10567586 -> 10595983 bytes
+|  .../trace.zip                                     | Bin 0 -> 10332930 bytes
+|  test-results/tests-example-basic-test/trace.zip   | Bin 0 -> 4857359 bytes
+|  tests/auth/authentication.spec.ts                 |   6 ++
+|  tests/pages/AuthPage.ts                           |   9 +--
+|  10 files changed, 101 insertions(+), 6 deletions(-)
+
+| * a8d261f  (origin/main) feat: add deploy script to package.json 2025-04-07 16:03:25 -0600| | 
+| |  package.json | 3 ++-
+| |  1 file changed, 2 insertions(+), 1 deletion(-)
+
+| * 2776957  perf: optimize build configuration for better chunking 2025-04-07 16:02:52 -0600
+|/  |   
+|    vite.config.ts | 12 ++++++++++++
+|    1 file changed, 12 insertions(+)
+
+| *   81a3cba  (refs/stash) WIP on main: 24a297f feat: add test results and update commit logs 2025-04-07 15:55:03 -0600
+| |\  
+| | * cacc862  index on main: 24a297f feat: add test results and update commit logs 2025-04-07 15:55:03 -0600
+| |/  
+| * 24a297f  feat: add test results and update commit logs 2025-04-07 15:54:27 -0600
+|/  |   
+|    git_commit_logs.txt                             |   7 ++++++-
+|    test-results/tests-example-basic-test/trace.zip | Bin 0 -> 4781109 bytes
+|    2 files changed, 6 insertions(+), 1 deletion(-)
+
+* 3586f87  feat: add authentication test results and update commit logs 2025-04-07 15:53:02 -0600| 
+|  git_commit_logs.txt                               |   9 ++++++++-
+|  .../trace.zip                                     | Bin 12058678 -> 10567586 bytes
+|  2 files changed, 8 insertions(+), 1 deletion(-)
+
+* 76edbac  nav bar duplication fix 2025-04-07 15:43:39 -0600| 
 |  git_commit_logs.txt                          | 16 +++++++++++++++-
 |  src/App.tsx                                  |  2 +-
 |  src/components/layout/Header.tsx             |  6 ------
@@ -32,15 +69,6 @@
 |  tests/.auth/auth.json        |    18 +
 |  tests/auth/auth.spec.ts      |   115 +
 |  4 files changed, 17746 insertions(+), 1 deletion(-)
-
-| * a6b7db9  (origin/main) docs: update git commit logs with recent changes 2025-04-07 10:28:19 -0600| | 
-| |  git_commit_logs.txt | 6 +++++-
-| |  1 file changed, 5 insertions(+), 1 deletion(-)
-
-| * 4bc7f12  commit 2025-04-07 10:23:42 -0600
-|/  |   
-|    git_commit_logs.txt | 138 +++++++++++++++++++++++++++++++++++++++++++++++-
-|    1 file changed, 137 insertions(+), 1 deletion(-)
 
 * af83030  commit 2025-04-07 10:22:58 -0600| 
 |  .prettierignore                                   |  10 +
