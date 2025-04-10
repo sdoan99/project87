@@ -1,4 +1,51 @@
-* 33a6c6b  (HEAD -> main) docs: consolidate Playwright testing documentation and update auth tests 2025-04-07 21:35:15 -0600| 
+* 52b6d8d  (HEAD -> main) feat: add Playwright configuration for cross-browser testing 2025-04-10 09:45:51 -0600| 
+|  git_commit_logs.txt                               |    48 +-
+|  .../0395a9751519c108e1643264e86b725c2cb402ad.zip  |   Bin 0 -> 3296 bytes
+|  .../41020787a21de2704c5483dff70a88609886fee5.zip  |   Bin 0 -> 2997 bytes
+|  .../43b8433fde8ad9fcb16fec6489b9cd0b52bbec5d.zip  |   Bin 0 -> 3183 bytes
+|  .../69c0602bde9521bbd5422be47eb3dc088843e12c.zip  |   Bin 0 -> 3329 bytes
+|  .../6d5c5cdca29fde83979c7158845ba2ee7e43959e.zip  |   Bin 0 -> 3467 bytes
+|  .../7e941217f8c12bb49b9e91191c309404fc0be319.zip  |   Bin 0 -> 3068 bytes
+|  .../853b6e18a65c16b23769769e082e3e1b0334fdc2.zip  |   Bin 0 -> 3696 bytes
+|  .../87157dd2eaeb886295f8b5e17cf7df77dd3175dd.zip  |   Bin 0 -> 3428 bytes
+|  .../e3a21cd38b89b004acb572fc60121cb000e56311.zip  |   Bin 0 -> 3521 bytes
+|  .../ffd326ca10305f1e678d7a26a04ab975c561f38c.zip  |   Bin 0 -> 3602 bytes
+|  playwright-report/index.html                      | 17659 +-----------------
+|  .../trace/assets/codeMirrorModule-DpJ-EmBQ.js     |    24 +
+|  .../trace/assets/defaultSettingsView-DTenqiGw.js  |   259 +
+|  .../trace/codeMirrorModule.C3UTv-Ge.css           |     1 +
+|  playwright-report/trace/codicon.DCmgc-ay.ttf      |   Bin 0 -> 80340 bytes
+|  .../trace/defaultSettingsView.5fN5lw10.css        |     1 +
+|  playwright-report/trace/index.CFOW-Ezb.css        |     1 +
+|  playwright-report/trace/index.CUq7VgrV.js         |     2 +
+|  playwright-report/trace/index.html                |    43 +
+|  playwright-report/trace/playwright-logo.svg       |     9 +
+|  playwright-report/trace/snapshot.html             |    21 +
+|  playwright-report/trace/sw.bundle.js              |     3 +
+|  playwright-report/trace/uiMode.BatfzHMG.css       |     1 +
+|  playwright-report/trace/uiMode.CHJSAD7F.js        |     5 +
+|  playwright-report/trace/uiMode.html               |    17 +
+|  playwright-report/trace/xtermModule.Beg8tuEN.css  |    32 +
+|  playwright.config.ts                              |    28 +
+|  .../trace.zip                                     |   Bin 4857359 -> 4760221 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3068 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3696 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3296 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3183 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3467 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3521 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3602 bytes
+|  .../trace.zip                                     |   Bin 0 -> 2997 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3428 bytes
+|  .../trace.zip                                     |   Bin 0 -> 3329 bytes
+|  .../trace.zip                                     |   Bin 10595983 -> 0 bytes
+|  .../trace.zip                                     |   Bin 10332930 -> 0 bytes
+|  tests/pages/StrategyPage.ts                       |   236 +
+|  tests/{auth => spectests}/authentication.spec.ts  |     8 +-
+|  tests/spectests/strategy-management.spec.ts       |   182 +
+|  44 files changed, 963 insertions(+), 17617 deletions(-)
+
+* 33a6c6b  docs: consolidate Playwright testing documentation and update auth tests 2025-04-07 21:35:15 -0600| 
 |  docs/PlaywrightBestPractices.md                   |   0
 |  docs/PlaywrightGuidelines.md                      |  81 ++++++++++++++++++++
 |  docs/PlaywrightRules.md                           |   0
