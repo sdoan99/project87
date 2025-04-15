@@ -5,6 +5,7 @@ export class AuthPage {
   readonly usernameInput: Locator;
   readonly emailInput: Locator;
   readonly passwordInput: Locator;
+  readonly registrationPasswordInput: Locator;
   readonly confirmPasswordInput: Locator;
   readonly signInButton: Locator;
   readonly registerButton: Locator;
@@ -18,7 +19,8 @@ export class AuthPage {
     this.page = page;
     this.usernameInput = page.getByLabel('Username');
     this.emailInput = page.getByLabel('Email');
-    this.passwordInput = page.getByPlaceholder('Create a password');
+    this.passwordInput = page.getByLabel('Password'); // login password field
+    this.registrationPasswordInput = page.getByPlaceholder('Create a password');
     this.confirmPasswordInput = page.getByPlaceholder('Confirm your password');
     this.signInButton = page.locator('form').getByRole('button', { name: 'Sign In' });
     this.registerButton = page.getByRole('button', { name: 'Create Account' });
@@ -37,7 +39,7 @@ export class AuthPage {
     await this.goto('/register');
     await this.usernameInput.fill(username);
     await this.emailInput.fill(email);
-    await this.passwordInput.fill(password);
+    await this.registrationPasswordInput.fill(password);
     await this.confirmPasswordInput.fill(confirmPassword);
     await this.registerButton.click();
     await expect(this.page).toHaveURL(/\/register/);
@@ -64,13 +66,7 @@ export class AuthPage {
     await expect(this.page).toHaveURL(/\/reset-password/);
   }
 
-  async login(identifier: string, password: string) {
-    await this.goto('/signin');
-    await this.emailInput.fill(identifier);
-    await this.passwordInput.fill(password);
-    await this.signInButton.click();
-    await expect(this.page).toHaveURL(/\/$/);
-  }
+
 
   async updateProfile(newData: { name?: string; email?: string }) {
     await this.profileButton.click();

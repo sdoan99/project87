@@ -80,9 +80,16 @@ function Footerdemo() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant='outline' size='icon' className='rounded-full'>
-                      <Facebook className='h-4 w-4' />
-                      <span className='sr-only'>Facebook</span>
+                    <Button variant='outline' size='icon' className='rounded-full' asChild>
+                      <a
+                        href="https://www.facebook.com/groups/feed/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook"
+                      >
+                        <Facebook className='h-4 w-4' />
+                        <span className='sr-only'>Facebook</span>
+                      </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
