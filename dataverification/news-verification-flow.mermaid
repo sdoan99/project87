@@ -1,0 +1,27 @@
+flowchart TD
+    A[News Event Occurs] --> B[Players Submit Data]
+    B --> C{Consensus Analysis}
+    
+    C --> |70% Agreement| D[Provisional Consensus]
+    C --> |Insufficient Agreement| B
+    
+    D --> E[48-hour Stability Check]
+    E --> |Consensus Stable| F[Lock Consensus]
+    E --> |Consensus Changes| C
+    
+    F --> G{New Information Check}
+    G --> |No New Info| H[Final Winner Confirmed]
+    
+    G --> |70% Flag for Update| I[Unlock Consensus]
+    I --> J[Re-evaluate All Submissions]
+    J --> K[Update Winner]
+    K --> L[Adjust Points/Rewards]
+    
+    subgraph Submission Details
+    M[Player Data] --> |Includes|N[Location]
+    M --> |Includes|O[Time]
+    M --> |Includes|P[Casualties]
+    M --> |Includes|Q[Timestamp]
+    end
+    
+    B --> M
