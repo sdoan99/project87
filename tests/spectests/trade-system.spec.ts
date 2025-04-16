@@ -1,11 +1,36 @@
 import { test, expect } from '@playwright/test';
 import { TradePage } from '../pages/TradePage';
+import { AuthPage } from '../pages/AuthPage';
+import fs from 'fs';
 
 const STORAGE_STATE_PATH = 'tests/.auth/auth.json';
 
 test.use({ storageState: STORAGE_STATE_PATH });
 
 test.describe('Trading System', () => {
+  const TEST_USERNAME = 'abc789';
+  const TEST_PASSWORD = '333333';
+
+  test.beforeAll(async ({ browser }) => {
+    let needLogin = true;
+    if (fs.existsSync(STORAGE_STATE_PATH)) {
+      const context = await browser.newContext({ storageState: STORAGE_STATE_PATH });
+      const page = await context.newPage();
+      await page.goto('http://localhost:5173');
+      if (await page.locator('.profile-button').first().isVisible({ timeout: 3000 }).catch(() => false)) {
+        needLogin = false;
+      }
+      await context.close();
+    }
+    if (needLogin) {
+      const context = await browser.newContext();
+      const page = await context.newPage();
+      const authPage = new AuthPage(page);
+      await authPage.login(TEST_USERNAME, TEST_PASSWORD);
+      await context.storageState({ path: STORAGE_STATE_PATH });
+      await context.close();
+    }
+  });
   let tradePage: TradePage;
 
   test('should navigate to performance page when first strategy is clicked', async ({ page }) => {
