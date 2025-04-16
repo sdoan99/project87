@@ -56,17 +56,21 @@ export function TradeActions({ actions, onAdd, onRemove, onUpdateAction }: Trade
             </div>
             <TradeInputRow
               type='number'
+              name='quantity'
               placeholder='0'
               value={action.quantity}
               onChange={e => onUpdateAction(index, 'quantity', Number(e.target.value))}
               className='col-span-1'
+              data-testid={`quantity-input-${index}`}
             />
             <TradeInputRow
               type='number'
+              name='price'
               placeholder='0.00'
               value={action.price}
               onChange={e => onUpdateAction(index, 'price', Number(e.target.value))}
               className='col-span-1'
+              data-testid={`price-input-${index}`}
             />
             <TradeInputRow
               type='number'

@@ -12,6 +12,7 @@ interface TradeFormProps {
   onDelete?: () => Promise<void>;
   initialTrade?: Trade;
   initialActions?: TradeAction[];
+  loading?: boolean;
 }
 
 export function TradeForm({
@@ -20,6 +21,7 @@ export function TradeForm({
   onDelete,
   initialTrade,
   initialActions,
+  loading = false,
 }: TradeFormProps) {
   const {
     market,
@@ -57,8 +59,11 @@ export function TradeForm({
     }
   };
 
+  if (loading) {
+    return <div data-testid="trade-form-loading">Loading...</div>;
+  }
   return (
-    <form onSubmit={handleSubmit} className='space-y-8'>
+    <form data-testid="trade-form" onSubmit={handleSubmit} className='space-y-8'>
       {error && (
         <div className='bg-red-500/10 border border-red-500 text-red-500 rounded-lg p-3'>
           {error}
@@ -74,10 +79,14 @@ export function TradeForm({
           onChange={e => setSector(e.target.value)}
         />
         <TradeInputRow
-          label='Symbol'
-          placeholder='Enter symbol'
+          label="Symbol"
+          name="symbol"
           value={symbol}
           onChange={e => setSymbol(e.target.value)}
+          placeholder="Enter symbol"
+          className=""
+          data-testid="symbol-input"
+          autoFocus
           required
         />
         <div>
@@ -114,6 +123,7 @@ export function TradeForm({
         </div>
         <button
           type='submit'
+          data-testid='submit-trade'
           disabled={!isValid}
           className={`px-6 py-2.5 rounded-lg transition-colors ${
             isValid
@@ -121,7 +131,7 @@ export function TradeForm({
               : 'bg-gray-700 text-gray-400 cursor-not-allowed'
           }`}
         >
-          {initialTrade ? 'Update Trade' : 'Save Trade'}
+          {initialTrade ? 'Update Trade' : 'Add Trade'}
         </button>
       </div>
     </form>

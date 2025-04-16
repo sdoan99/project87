@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import { TradePage } from '../pages/TradePage';
 
-const TEST_USERNAME = 'tradeuser';
-const TEST_PASSWORD = 'tradepass';
-const STORAGE_STATE_PATH = 'tests/.auth/trade-auth.json';
+const STORAGE_STATE_PATH = 'tests/.auth/auth.json';
+
+test.use({ storageState: STORAGE_STATE_PATH });
 
 test.describe('Trading System', () => {
   let tradePage: TradePage;
@@ -29,6 +29,7 @@ test.describe('Trading System', () => {
   });
 
   test('should create and submit a valid trade', async ({ page }) => {
+    await tradePage.openTradeForm();
     await tradePage.createTrade({ symbol: 'AAPL', quantity: '10', price: '150' });
     await tradePage.assertTradeVisible('AAPL');
   });

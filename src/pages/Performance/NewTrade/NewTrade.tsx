@@ -101,6 +101,7 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
             onDelete={handleDelete}
             initialTrade={initialTrade}
             initialActions={initialActions}
+            loading={loading}
           />
         </div>
       </div>

@@ -17,10 +17,26 @@ export class TradePage {
     this.submitTradeBtn = page.locator('[data-testid="submit-trade"]');
   }
 
+  async openTradeForm() {
+    if (await this.tradeForm.isVisible()) {
+      // Form is already open, do nothing
+      return;
+    }
+    await this.page.locator('[data-testid="add-trade-btn"]').click();
+    await this.tradeForm.waitFor({ state: 'visible' });
+    // Wait for the symbol input to be visible before proceeding
+    await this.tradeForm.locator('[data-testid="symbol-input"]').waitFor({ state: 'visible' });
+  }
+
   async createTrade(payload: TradePayload) {
-    await this.tradeForm.locator('input[name="symbol"]').fill(payload.symbol);
-    await this.tradeForm.locator('input[name="quantity"]').fill(payload.quantity);
-    await this.tradeForm.locator('input[name="price"]').fill(payload.price);
+    await this.openTradeForm();
+    // Defensive assertion for clearer error messages
+    await expect(this.tradeForm.locator('[data-testid="symbol-input"]')).toBeVisible();
+    await this.tradeForm.locator('[data-testid="symbol-input"]').fill(payload.symbol);
+    await this.tradeForm.locator('[data-testid="quantity-input-0"]').waitFor({ state: 'visible' });
+    await this.tradeForm.locator('[data-testid="quantity-input-0"]').fill(payload.quantity);
+    await this.tradeForm.locator('[data-testid="price-input-0"]').waitFor({ state: 'visible' });
+    await this.tradeForm.locator('[data-testid="price-input-0"]').fill(payload.price);
     await this.submitTradeBtn.click();
   }
 
