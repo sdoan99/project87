@@ -1,9 +1,5 @@
 
-00b0adb 2025-04-15 feat: add dataverification/newfile with sample content
-bc1f47f  2025-04-15 commit
-a47ab0f  2025-04-15 docs: upload dataverification docs
-7b572d5  2025-04-13 Initial commit
-
+git log --color --pretty=format:"%C(yellow)%h%Creset %C(cyan)%ad%Creset %Cgreen%s%Creset" --date=iso --name-status
 
 
 Commit: 00b0adb
