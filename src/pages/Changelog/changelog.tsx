@@ -2,7 +2,6 @@ import React from 'react';
 
 function Changelog() {
   const changelogs = [
-
     /*
     {
       version: 'v 1.6.5',
@@ -47,21 +46,25 @@ function Changelog() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 pt-24">
-      <main className="container mx-auto py-12 flex flex-col gap-12 px-6 sm:px-9 lg:px-56">
+    <div className='min-h-screen bg-gray-900 pt-24'>
+      <main className='container mx-auto py-12 flex flex-col gap-12 px-6 sm:px-9 lg:px-56'>
         {changelogs.map((log, idx) => (
-          <div key={idx} className="bg-gray-900 rounded-lg shadow-lg p-8 border border-gray-800">
-            <h3 className="text-xl font-semibold mb-2">{log.title}</h3>
-            <div className={`${log.bannerBg} rounded-lg mb-4 w-full max-w-2xl h-40 flex items-center justify-center`}>
-              <h4 className="text-white text-5xl font-bold">{log.bannerText}</h4>
+          <div key={idx} className='bg-gray-900 rounded-lg shadow-lg p-8 border border-gray-800'>
+            <h3 className='text-xl font-semibold mb-2'>{log.title}</h3>
+            <div
+              className={`${log.bannerBg} rounded-lg mb-4 w-full max-w-2xl h-40 flex items-center justify-center`}
+            >
+              <h4 className='text-white text-5xl font-bold'>{log.bannerText}</h4>
             </div>
-            <div className="mb-4">
-              <span className="inline-block bg-gray-800 text-xs rounded px-2 py-1 font-mono mb-2">{log.version}</span>
-              <span className="ml-2 text-sm text-gray-400">{log.date}</span>
+            <div className='mb-4'>
+              <span className='inline-block bg-gray-800 text-xs rounded px-2 py-1 font-mono mb-2'>
+                {log.version}
+              </span>
+              <span className='ml-2 text-sm text-gray-400'>{log.date}</span>
             </div>
-            <h3 className="text-xl font-semibold mb-2">{log.heading}</h3>
-            {log.subtitle && <div className="text-base text-gray-300 mb-4">{log.subtitle}</div>}
-            <ul className="list-disc ml-6 text-gray-200">
+            <h3 className='text-xl font-semibold mb-2'>{log.heading}</h3>
+            {log.subtitle && <div className='text-base text-gray-300 mb-4'>{log.subtitle}</div>}
+            <ul className='list-disc ml-6 text-gray-200'>
               {log.bullets.map((b, i) => (
                 <li key={i}>{b}</li>
               ))}

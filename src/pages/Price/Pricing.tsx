@@ -1,3 +1,4 @@
+/* Moved from src/components/ui/pricing.tsx on 2025-04-17 */
 'use client';
 
 import { buttonVariants } from '@/components/ui/button';

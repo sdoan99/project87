@@ -17,7 +17,13 @@ test.describe('Trading System', () => {
       const context = await browser.newContext({ storageState: STORAGE_STATE_PATH });
       const page = await context.newPage();
       await page.goto('http://localhost:5173');
-      if (await page.locator('.profile-button').first().isVisible({ timeout: 3000 }).catch(() => false)) {
+      if (
+        await page
+          .locator('.profile-button')
+          .first()
+          .isVisible({ timeout: 3000 })
+          .catch(() => false)
+      ) {
         needLogin = false;
       }
       await context.close();

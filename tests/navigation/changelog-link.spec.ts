@@ -3,7 +3,9 @@ import { test, expect } from '@playwright/test';
 // E2E: Header navigation includes Changelog link below Documentation, navigates to /changelog
 
 test.describe('Header Navigation: Changelog Link', () => {
-  test('should display Changelog link below Documentation and navigate correctly', async ({ page }) => {
+  test('should display Changelog link below Documentation and navigate correctly', async ({
+    page,
+  }) => {
     // Visit the home page
     await page.goto('/');
 
@@ -18,8 +20,12 @@ test.describe('Header Navigation: Changelog Link', () => {
     // Ensure Changelog link appears after Documentation in the DOM
     const docHandle = await docLink.elementHandle();
     const changelogHandle = await changelogLink.elementHandle();
-    const docIndex = await docHandle?.evaluate((el) => Array.from(el.parentNode?.children ?? []).indexOf(el));
-    const changelogIndex = await changelogHandle?.evaluate((el) => Array.from(el.parentNode?.children ?? []).indexOf(el));
+    const docIndex = await docHandle?.evaluate(el =>
+      Array.from(el.parentNode?.children ?? []).indexOf(el)
+    );
+    const changelogIndex = await changelogHandle?.evaluate(el =>
+      Array.from(el.parentNode?.children ?? []).indexOf(el)
+    );
     expect(changelogIndex).toBeGreaterThan(docIndex ?? -1);
 
     // Click the Changelog link

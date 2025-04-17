@@ -7,7 +7,6 @@ test.describe('Authentication System', () => {
   const testPassword = '000000';
   const testPasswordConfirmation = '000000';
 
-
   test.beforeEach(async ({ page }) => {
     test.setTimeout(60000);
     authPage = new AuthPage(page);
@@ -21,12 +20,22 @@ test.describe('Authentication System', () => {
     }, 30000);
 
     test('should show error for invalid username format', async () => {
-      await authPage.register('invalid username', testEmail, testPassword, testPasswordConfirmation);
+      await authPage.register(
+        'invalid username',
+        testEmail,
+        testPassword,
+        testPasswordConfirmation
+      );
       await expect(authPage.errorMessage).toBeVisible({ timeout: 10000 });
     }, 30000);
 
     test('should show error for invalid email format', async () => {
-      await authPage.register(testUsername, 'invalid-email', testPassword, testPasswordConfirmation);
+      await authPage.register(
+        testUsername,
+        'invalid-email',
+        testPassword,
+        testPasswordConfirmation
+      );
       await expect(authPage.errorMessage).toBeVisible({ timeout: 10000 });
     }, 30000);
 
@@ -46,14 +55,14 @@ test.describe('Authentication System', () => {
       // Login with email
       await authPage.login(testEmail, testPassword);
       await authPage.verifyLoggedIn();
-      
+
       await authPage.logout();
       await authPage.verifyLoggedOut();
 
       // Login with username
       await authPage.login(testUsername, testPassword);
       await authPage.verifyLoggedIn();
-      
+
       await authPage.logout();
       await authPage.verifyLoggedOut();
     }, 30000);
@@ -112,10 +121,10 @@ test.describe('Authentication System', () => {
   test.describe('Session Management', () => {
     test('should handle expired sessions', async ({ page }) => {
       await authPage.login(testEmail, testPassword);
-      
+
       await page.evaluate(() => localStorage.clear());
       await page.reload();
-      
+
       await authPage.verifyLoggedOut();
     }, 30000);
 

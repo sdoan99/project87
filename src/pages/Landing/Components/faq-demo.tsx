@@ -73,7 +73,7 @@ export function FaqSectionDemo() {
           title: 'Still have questions?',
           description: "We're here to help you",
           buttonText: 'Contact Us',
-          onContact: () => window.location.href = 'mailto:contact@strats.pro',
+          onContact: () => (window.location.href = 'mailto:contact@strats.pro'),
         }}
       />
     </div>

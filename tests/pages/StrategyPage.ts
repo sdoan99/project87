@@ -29,7 +29,14 @@ export class StrategyPage {
     await expect(this.page).toHaveURL(/\/create/);
   }
 
-  async fillStrategyForm({ name, description, markets, categories, timeframes, isPublic }: {
+  async fillStrategyForm({
+    name,
+    description,
+    markets,
+    categories,
+    timeframes,
+    isPublic,
+  }: {
     name: string;
     description: string;
     markets: string[];

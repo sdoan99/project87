@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Pricing } from '../../components/ui/pricing';
+import { Pricing } from './Pricing';
 import { TableDemo } from './TableDemo';
 
 const demoPlans = [

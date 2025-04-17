@@ -60,10 +60,10 @@ export function TradeForm({
   };
 
   if (loading) {
-    return <div data-testid="trade-form-loading">Loading...</div>;
+    return <div data-testid='trade-form-loading'>Loading...</div>;
   }
   return (
-    <form data-testid="trade-form" onSubmit={handleSubmit} className='space-y-8'>
+    <form data-testid='trade-form' onSubmit={handleSubmit} className='space-y-8'>
       {error && (
         <div className='bg-red-500/10 border border-red-500 text-red-500 rounded-lg p-3'>
           {error}
@@ -79,13 +79,13 @@ export function TradeForm({
           onChange={e => setSector(e.target.value)}
         />
         <TradeInputRow
-          label="Symbol"
-          name="symbol"
+          label='Symbol'
+          name='symbol'
           value={symbol}
           onChange={e => setSymbol(e.target.value)}
-          placeholder="Enter symbol"
-          className=""
-          data-testid="symbol-input"
+          placeholder='Enter symbol'
+          className=''
+          data-testid='symbol-input'
           autoFocus
           required
         />

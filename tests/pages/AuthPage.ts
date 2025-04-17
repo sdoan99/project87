@@ -25,7 +25,10 @@ export class AuthPage {
     this.signInButton = page.locator('form').getByRole('button', { name: 'Sign In' });
     this.registerButton = page.getByRole('button', { name: 'Create Account' });
     this.resetPasswordLink = page.getByRole('link', { name: 'Reset Password' });
-    this.profileButton = page.locator('.profile-button').filter({ has: page.getByRole('img', { name: 'User' }) }).filter({ has: page.getByText('username') });
+    this.profileButton = page
+      .locator('.profile-button')
+      .filter({ has: page.getByRole('img', { name: 'User' }) })
+      .filter({ has: page.getByText('username') });
     this.logoutButton = page.getByRole('button', { name: 'Sign out' });
     this.errorMessage = page.getByRole('alert').filter({ hasText: /error/i });
     this.successMessage = page.getByText('Account created successfully! Thanks for joining us!');
@@ -65,8 +68,6 @@ export class AuthPage {
     await this.resetPasswordLink.click();
     await expect(this.page).toHaveURL(/\/reset-password/);
   }
-
-
 
   async updateProfile(newData: { name?: string; email?: string }) {
     await this.profileButton.click();

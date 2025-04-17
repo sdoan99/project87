@@ -60,7 +60,10 @@ function Footerdemo() {
               <a href='#' className='block transition-colors hover:text-primary'>
                 Products
               </a>
-              <a href='mailto:contact@strats.pro' className='block transition-colors hover:text-primary'>
+              <a
+                href='mailto:contact@strats.pro'
+                className='block transition-colors hover:text-primary'
+              >
                 Contact
               </a>
             </nav>
@@ -71,7 +74,15 @@ function Footerdemo() {
               <p>123 Innovation Street</p>
               <p>Tech City, TC 12345</p>
               <p>Phone: (123) 456-7890</p>
-              <p className='hover:text-primary'>Email: <a href='mailto:contact@strats.pro' className='transition-colors hover:text-primary'>contact@strats.pro</a></p>
+              <p className='hover:text-primary'>
+                Email:{' '}
+                <a
+                  href='mailto:contact@strats.pro'
+                  className='transition-colors hover:text-primary'
+                >
+                  contact@strats.pro
+                </a>
+              </p>
             </address>
           </div>
           <div className='relative'>
@@ -82,10 +93,10 @@ function Footerdemo() {
                   <TooltipTrigger asChild>
                     <Button variant='outline' size='icon' className='rounded-full' asChild>
                       <a
-                        href="https://www.facebook.com/groups/feed/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook"
+                        href='https://www.facebook.com/groups/feed/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='Facebook'
                       >
                         <Facebook className='h-4 w-4' />
                         <span className='sr-only'>Facebook</span>
@@ -148,9 +159,7 @@ function Footerdemo() {
           </div>
         </div>
         <div className='mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-8 text-center md:flex-row'>
-          <p className='text-sm text-muted-foreground'>
-            2025 Your Company. All rights reserved.
-          </p>
+          <p className='text-sm text-muted-foreground'>2025 Your Company. All rights reserved.</p>
           <nav className='flex gap-4 text-sm'>
             <a href='#' className='transition-colors hover:text-primary'>
               Privacy Policy

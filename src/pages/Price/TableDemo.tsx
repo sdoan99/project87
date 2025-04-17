@@ -6,9 +6,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from './table';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Globe } from 'lucide-react';
+import { Globe, Check, X, Info } from 'lucide-react';
 
 // Items array remains the same
 const items = [
@@ -91,7 +91,11 @@ export function TableDemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <span className='cursor-default'>
-                      StratsPro <span className='ml-1'>ℹ️</span>
+                      StratsPro{' '}
+                      <Info
+                        className='inline-block ml-1 h-4 w-4 text-muted-foreground align-text-bottom'
+                        aria-label='info'
+                      />
                     </span>
                   </TooltipTrigger>
                   <TooltipContent className='dark py-3'>
@@ -119,7 +123,11 @@ export function TableDemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <span className='cursor-default'>
-                      Other Copy Platforms <span className='ml-1'>ℹ️</span>
+                      Other Copy Platforms{' '}
+                      <Info
+                        className='inline-block ml-1 h-4 w-4 text-muted-foreground align-text-bottom'
+                        aria-label='info'
+                      />
                     </span>
                   </TooltipTrigger>
                   <TooltipContent className='dark py-3'>
@@ -150,7 +158,11 @@ export function TableDemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <span className='cursor-default'>
-                      Financial Guru <span className='ml-1'>ℹ️</span>
+                      Financial Guru{' '}
+                      <Info
+                        className='inline-block ml-1 h-4 w-4 text-muted-foreground align-text-bottom'
+                        aria-label='info'
+                      />
                     </span>
                   </TooltipTrigger>
                   <TooltipContent className='dark py-3'>
@@ -180,7 +192,11 @@ export function TableDemo() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <span className='cursor-default'>
-                      Mainstream Media <span className='ml-1'>ℹ️</span>
+                      Mainstream Media{' '}
+                      <Info
+                        className='inline-block ml-1 h-4 w-4 text-muted-foreground align-text-bottom'
+                        aria-label='info'
+                      />
                     </span>
                   </TooltipTrigger>
                   <TooltipContent className='dark py-3'>
@@ -210,10 +226,42 @@ export function TableDemo() {
           {items.map(item => (
             <TableRow key={item.id}>
               <TableCell className='font-medium text-muted-foreground'>{item.name}</TableCell>
-              <TableCell className='text-center'>{item.moneyPrinter}</TableCell>
-              <TableCell className='text-center'>{item.otherCopyPlatforms}</TableCell>
-              <TableCell className='text-center'>{item.financialGuru}</TableCell>
-              <TableCell className='text-center'>{item.mainstreamMedia}</TableCell>
+              <TableCell className='text-center'>
+                {item.moneyPrinter === '✅' ? (
+                  <Check className='h-5 w-5 text-green-500 mx-auto' />
+                ) : item.moneyPrinter === '❌' ? (
+                  <X className='h-5 w-5 text-red-500 mx-auto' />
+                ) : (
+                  <span className='text-gray-300'>{item.moneyPrinter}</span>
+                )}
+              </TableCell>
+              <TableCell className='text-center'>
+                {item.otherCopyPlatforms === '✅' ? (
+                  <Check className='h-5 w-5 text-green-500 mx-auto' />
+                ) : item.otherCopyPlatforms === '❌' ? (
+                  <X className='h-5 w-5 text-red-500 mx-auto' />
+                ) : (
+                  <span className='text-gray-300'>{item.otherCopyPlatforms}</span>
+                )}
+              </TableCell>
+              <TableCell className='text-center'>
+                {item.financialGuru === '✅' ? (
+                  <Check className='h-5 w-5 text-green-500 mx-auto' />
+                ) : item.financialGuru === '❌' ? (
+                  <X className='h-5 w-5 text-red-500 mx-auto' />
+                ) : (
+                  <span className='text-gray-300'>{item.financialGuru}</span>
+                )}
+              </TableCell>
+              <TableCell className='text-center'>
+                {item.mainstreamMedia === '✅' ? (
+                  <Check className='h-5 w-5 text-green-500 mx-auto' />
+                ) : item.mainstreamMedia === '❌' ? (
+                  <X className='h-5 w-5 text-red-500 mx-auto' />
+                ) : (
+                  <span className='text-gray-300'>{item.mainstreamMedia}</span>
+                )}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
