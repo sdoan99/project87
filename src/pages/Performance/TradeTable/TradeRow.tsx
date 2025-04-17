@@ -2,7 +2,7 @@ import React from 'react';
 import { Trade } from './types';
 import { formatCurrency, formatPercentage } from './utils';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import { useSymbol } from '../../../context/SymbolContext';
+import { useSymbol } from '../../../components/tradingview/context/SymbolContext';
 
 interface TradeRowProps {
   trade: Trade;

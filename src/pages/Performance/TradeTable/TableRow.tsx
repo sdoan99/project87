@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { PerformanceCell } from './PerformanceCell';
 import { formatCurrency, formatPercentage } from '../../../utils/formatters';
 import { StrategyData } from '../../../types/strategy';
-import { useSymbol } from '../../../context/SymbolContext';
+import { useSymbol } from '../../../components/tradingview/context/SymbolContext';
 
 interface TableRowProps {
   strategy: StrategyData;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useSymbol } from '../../context/SymbolContext';
+import { useSymbol } from './context/SymbolContext';
 
 export function TVAdvChart() {
   const container = useRef<HTMLDivElement>(null);
