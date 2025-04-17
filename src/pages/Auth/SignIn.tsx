@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import AuthLayout from '../../components/common/AuthLayout';
+import AuthLayout from '../../components/auth/AuthLayout';
 import FormInput from '../../components/common/FormInput';
 import AuthTabs from '../../components/auth/AuthTabs';
 import { useAuthStore } from '../../store/authStore';
