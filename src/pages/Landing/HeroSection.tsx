@@ -1,6 +1,6 @@
 import React from 'react';
 import { TradingViewWidget } from './TradingViewHeroWidget';
-import { AnimatedArrow } from '../../components/common/AnimatedArrow';
+import { AnimatedArrow } from './Animation/AnimatedArrow';
 
 export function HeroSection() {
   const scrollToContent = () => {

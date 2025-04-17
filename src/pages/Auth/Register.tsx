@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User, Mail, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import AuthLayout from './AuthLayout';
-import FormInput from '../../components/common/FormInput';
+import { Input } from '@/components/ui/input';
 import AuthTabs from './AuthTabs';
 import { useAuthStore } from '../../store/authStore';
 
@@ -50,53 +50,69 @@ export default function Register() {
           </div>
         )}
 
-        <FormInput
-          id='username'
-          name='username'
-          type='text'
-          label='Username'
-          value={formData.username}
-          onChange={e => setFormData({ ...formData, username: e.target.value })}
-          placeholder='Choose a username'
-          required
-          Icon={User}
-        />
+        <div>
+          <label htmlFor='username' className='block text-sm font-medium text-gray-700'>
+            Username
+          </label>
+          <Input
+            id='username'
+            name='username'
+            type='text'
+            value={formData.username}
+            onChange={e => setFormData({ ...formData, username: e.target.value })}
+            placeholder='Choose a username'
+            required
+            autoComplete='username'
+          />
+        </div>
 
-        <FormInput
-          id='email'
-          name='email'
-          type='email'
-          label='Email'
-          value={formData.email}
-          onChange={e => setFormData({ ...formData, email: e.target.value })}
-          placeholder='Enter your email'
-          required
-          Icon={Mail}
-        />
+        <div>
+          <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
+            Email
+          </label>
+          <Input
+            id='email'
+            name='email'
+            type='email'
+            value={formData.email}
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            placeholder='Enter your email'
+            required
+            autoComplete='email'
+          />
+        </div>
 
-        <FormInput
-          id='password'
-          name='password'
-          type='password'
-          label='Password'
-          value={formData.password}
-          onChange={e => setFormData({ ...formData, password: e.target.value })}
-          placeholder='Create a password'
-          required
-          Icon={Lock}
-        />
+        <div>
+          <label htmlFor='password' className='block text-sm font-medium text-gray-700'>
+            Password
+          </label>
+          <Input
+            id='password'
+            name='password'
+            type='password'
+            value={formData.password}
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
+            placeholder='Create a password'
+            required
+            autoComplete='new-password'
+          />
+        </div>
 
-        <FormInput
-          id='confirmPassword'
-          name='confirmPassword'
-          type='password'
-          label='Confirm Password'
-          value={formData.confirmPassword}
-          onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })}
-          placeholder='Confirm your password'
-          required
-          Icon={Lock}
-        />
+        <div>
+          <label htmlFor='confirmPassword' className='block text-sm font-medium text-gray-700'>
+            Confirm Password
+          </label>
+          <Input
+            id='confirmPassword'
+            name='confirmPassword'
+            type='password'
+            value={formData.confirmPassword}
+            onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })}
+            placeholder='Confirm your password'
+            required
+            autoComplete='new-password'
+          />
+        </div>
 
         <button
           type='submit'
