@@ -16,6 +16,20 @@ function Changelog() {
         'Usage in Windsurf is free for a limited time from April 16th to April 21st',
       ],
     },
+    {
+      version: 'v 1.0.2',
+      date: 'April 17, 2025',
+      title: 'Clerk Sign In and Web 3 Integration',
+      bannerBg: 'bg-blue-600',
+      bannerText: 'Easy SignIn and Crypto Wallets',
+      heading: 'One step closing to easy onboarding',
+      subtitle: '',
+      bullets: [
+        'Clerk enables google, email, + user signin without entering sensitive email info',
+        'Clerk also has web 3 crypto wallet integration to enable token verification',
+        'Additional user authorization methods will be added in the future',
+      ],
+    },
     */
     {
       version: 'v 1.0.1',
