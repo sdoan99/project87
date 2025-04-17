@@ -19,6 +19,7 @@ import Following from './pages/Following/Following';
 import Subscription from './pages/Subscription/Subscription';
 import Support from './pages/Support/Support';
 import Documentation from './pages/Documentation/Documentation';
+import Changelog from './pages/Changelog/changelog';
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
                   <Route path='/subscriptions' element={<Subscription />} />
                   <Route path='/support' element={<Support />} />
                   <Route path='/docs' element={<Documentation />} />
+                  <Route path='/changelog' element={<Changelog />} />
                 </Routes>
               </main>
               <Footerdemo />

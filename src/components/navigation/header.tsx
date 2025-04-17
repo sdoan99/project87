@@ -62,6 +62,7 @@ function Header1() {
         { title: 'Community', href: '/community' },
         { title: 'Support', href: '/support' },
         { title: 'Documentation', href: '/docs' },
+        { title: 'Changelog', href: '/changelog' },
       ],
     },
     {
