@@ -1,5 +1,5 @@
 import React from 'react';
-import { SortableHeader } from '../../../components/table/SortableHeader';
+import { SortableHeader } from './SortableHeader';
 import { StrategyData } from '../../../types/strategy';
 
 interface TableHeaderProps {
