@@ -2,10 +2,21 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuthStore } from '../store/authStore';
 
-export function useUserProfile() {
+/**
+ * React hook to fetch and provide the current user's profile (username).
+ * Returns username, loading, and error states. Safe for use with Zustand auth store.
+ */
+export interface UseUserProfileResult {
+  username: string | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export function useUserProfile(): UseUserProfileResult {
   const user = useAuthStore(state => state.user);
   const [username, setUsername] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchUserProfile() {
@@ -23,8 +34,10 @@ export function useUserProfile() {
 
         if (error) throw error;
         setUsername(data?.username || null);
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching user profile:', err);
+        setError(err instanceof Error ? err.message : String(err));
       } finally {
         setLoading(false);
       }
@@ -33,5 +46,5 @@ export function useUserProfile() {
     fetchUserProfile();
   }, [user?.id]);
 
-  return { username, loading };
+  return { username, loading, error };
 }

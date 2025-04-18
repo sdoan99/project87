@@ -25,7 +25,18 @@ export interface StrategyProfile {
   strategy_metrics: StrategyMetrics;
 }
 
-export function useStrategyProfile(strategyName?: string, refreshTrigger = 0) {
+/**
+ * React hook to fetch a strategy profile (with metrics) by strategy name.
+ * Returns profile, loading, error, and refetch states. Safe for missing or malformed metrics.
+ */
+export interface UseStrategyProfileResult {
+  profile: StrategyProfile | null;
+  loading: boolean;
+  error: string | null;
+  refetch: () => Promise<void>;
+}
+
+export function useStrategyProfile(strategyName?: string, refreshTrigger = 0): UseStrategyProfileResult {
   const [profile, setProfile] = useState<StrategyProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -61,9 +72,12 @@ export function useStrategyProfile(strategyName?: string, refreshTrigger = 0) {
       if (error) throw error;
 
       // Transform the joined data to match our StrategyProfile interface
+      const metrics = Array.isArray(data.strategy_metrics) && data.strategy_metrics.length > 0
+        ? data.strategy_metrics[0]
+        : null;
       const transformedData: StrategyProfile = {
         ...data,
-        strategy_metrics: data.strategy_metrics[0], // Get the first (and should be only) metrics record
+        strategy_metrics: metrics,
       };
 
       setProfile(transformedData);

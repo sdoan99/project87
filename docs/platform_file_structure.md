@@ -10,7 +10,6 @@
 ├── src/                    # Main source code directory
 │   ├── components/         # Reusable React components
 │   │   ├── common/         # Generic UI components (Button, Input, etc.)
-│   │   ├── layout/         # Layout components (Sidebar, Header, Footer)
 │   │   ├── strategy/       # Strategy-specific components
 │   │   ├── dataviz/        # Data visualization components
 │   │   └── tradingview/    # TradingView Widgets
@@ -34,7 +33,6 @@
 │   │   └── financialDataService.ts
 │
 │   ├── utils/              # Utility functions and helpers
-│   │   ├── calculations.ts     # Financial calculation helpers
 │   │   ├── formatters.ts
 │   │   └── validators.ts
 │
