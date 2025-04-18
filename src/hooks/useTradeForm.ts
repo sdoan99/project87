@@ -1,6 +1,12 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Trade, TradeAction } from '../types/trade';
 
+/**
+ * Manages trade form state and validation.
+ * @param initialTrade Optional initial trade object.
+ * @param initialActions Optional initial trade actions.
+ * @returns Form state, handlers, validation state.
+ */
 export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[]) {
   const [market, setMarket] = useState('STOCK');
   const [sector, setSector] = useState('');
@@ -32,9 +38,9 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
     }
   }, [initialTrade, initialActions]);
 
-  const handleAddAction = () => {
-    setActions([
-      ...actions,
+  const handleAddAction = useCallback(() => {
+    setActions(prev => [
+      ...prev,
       {
         type: 'BUY',
         date: new Date().toISOString().slice(0, 16),
@@ -43,17 +49,17 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
         fee: 0,
       },
     ]);
-  };
+  }, []);
 
-  const handleRemoveAction = (index: number) => {
-    if (actions.length > 1) {
-      setActions(actions.filter((_, i) => i !== index));
-    }
-  };
+  const handleRemoveAction = useCallback((index: number) => {
+    setActions(prev => (prev.length > 1 ? prev.filter((_, i) => i !== index) : prev));
+  }, []);
 
-  const handleUpdateAction = (index: number, field: keyof TradeAction, value: any) => {
-    setActions(actions.map((action, i) => (i === index ? { ...action, [field]: value } : action)));
-  };
+  const handleUpdateAction = useCallback(<K extends keyof TradeAction>(index: number, field: K, value: TradeAction[K]) => {
+    setActions(prev =>
+      prev.map((action, i) => (i === index ? { ...action, [field]: value } : action))
+    );
+  }, []);
 
   const { isValid, error } = useMemo(() => {
     if (!symbol.trim()) {
