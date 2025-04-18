@@ -6,7 +6,7 @@ const FirstSection = () => {
   return (
     <div className='w-full max-w-6xl mx-auto flex flex-col items-center'>
       {/* Inline CSS for hover effects */}
-      <style jsx>{`
+      <style>{`
         .feature-group:hover + .image-container .strategy-sort {
           border: 4px solid #60a5fa; /* blue-400 */
         }

@@ -1,5 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSymbol } from './context/SymbolContext';
+import { PriceTicker } from '../PriceTicker';
+import { ErrorBoundary } from '../PriceTicker/ErrorBoundary';
 
 export function TVAdvChart() {
   const container = useRef<HTMLDivElement>(null);
@@ -56,8 +58,15 @@ export function TVAdvChart() {
   }, [activeSymbol]);
 
   return (
-    <div className='tradingview-widget-container h-full' ref={container}>
-      <div className='tradingview-widget-container__widget h-full'></div>
+    <div>
+      <div className="mb-2">
+        <ErrorBoundary>
+          <PriceTicker symbol={activeSymbol} />
+        </ErrorBoundary>
+      </div>
+      <div className='tradingview-widget-container h-full' ref={container}>
+        <div className='tradingview-widget-container__widget h-full'></div>
+      </div>
     </div>
   );
 }
