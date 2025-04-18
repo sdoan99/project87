@@ -1,4 +1,4 @@
-npm install --save-dev jest-environment-jsdom/** @type {import('ts-jest').JestConfigWithTsJest} **/
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   testEnvironment: 'jsdom',
   transform: {

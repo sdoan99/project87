@@ -36,7 +36,10 @@ export interface UseStrategyProfileResult {
   refetch: () => Promise<void>;
 }
 
-export function useStrategyProfile(strategyName?: string, refreshTrigger = 0): UseStrategyProfileResult {
+export function useStrategyProfile(
+  strategyName?: string,
+  refreshTrigger = 0
+): UseStrategyProfileResult {
   const [profile, setProfile] = useState<StrategyProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -72,9 +75,10 @@ export function useStrategyProfile(strategyName?: string, refreshTrigger = 0): U
       if (error) throw error;
 
       // Transform the joined data to match our StrategyProfile interface
-      const metrics = Array.isArray(data.strategy_metrics) && data.strategy_metrics.length > 0
-        ? data.strategy_metrics[0]
-        : null;
+      const metrics =
+        Array.isArray(data.strategy_metrics) && data.strategy_metrics.length > 0
+          ? data.strategy_metrics[0]
+          : null;
       const transformedData: StrategyProfile = {
         ...data,
         strategy_metrics: metrics,

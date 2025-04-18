@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
 import { Trade } from '../../../types/trade';
 import { useTradeActions } from '../../../hooks/useTradeActions';
+import type { TradeData } from './useTradeSubmit';
 
 interface NewTradeProps {
   onClose: () => void;
@@ -33,7 +34,7 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
     };
   }, [onClose]);
 
-  const handleSubmit = async (formData: any) => {
+  const handleSubmit = async (formData: Omit<TradeData, 'strategyId'>) => {
     try {
       if (!profile?.id) {
         throw new Error('Strategy profile not found');

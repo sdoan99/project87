@@ -63,4 +63,3 @@ export function useTradeData(strategyId?: string) {
 
   return { trades, loading, error, refetch: fetchTrades };
 }
-

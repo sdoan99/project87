@@ -55,11 +55,14 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
     setActions(prev => (prev.length > 1 ? prev.filter((_, i) => i !== index) : prev));
   }, []);
 
-  const handleUpdateAction = useCallback(<K extends keyof TradeAction>(index: number, field: K, value: TradeAction[K]) => {
-    setActions(prev =>
-      prev.map((action, i) => (i === index ? { ...action, [field]: value } : action))
-    );
-  }, []);
+  const handleUpdateAction = useCallback(
+    <K extends keyof TradeAction>(index: number, field: K, value: TradeAction[K]) => {
+      setActions(prev =>
+        prev.map((action, i) => (i === index ? { ...action, [field]: value } : action))
+      );
+    },
+    []
+  );
 
   const { isValid, error } = useMemo(() => {
     if (!symbol.trim()) {

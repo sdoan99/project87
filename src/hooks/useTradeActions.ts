@@ -55,4 +55,3 @@ export function useTradeActions(betId?: string) {
 
   return { actions, loading, error, refetch: fetchActions };
 }
-

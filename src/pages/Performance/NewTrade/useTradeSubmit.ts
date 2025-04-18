@@ -2,7 +2,7 @@ import { supabase } from '../../../lib/supabase';
 import { useAuthStore } from '../../../store/authStore';
 import { TradeAction } from './types';
 
-interface TradeData {
+export interface TradeData {
   market: string;
   sector: string;
   symbol: string;
