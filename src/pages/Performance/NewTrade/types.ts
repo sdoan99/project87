@@ -1,12 +1,5 @@
-export type TradeActionType = 'BUY' | 'SELL';
-
-export interface TradeAction {
-  type: TradeActionType;
-  date: string;
-  quantity: number;
-  price: number;
-  fee: number;
-}
+// TradeActionType and TradeAction have been centralized in src/types/trade.ts
+// import { TradeAction, TradeActionType } from 'src/types/trade';
 
 export interface MarketSelectProps {
   value: string;

@@ -4,7 +4,7 @@ import { TradeActions } from './TradeActions';
 import { TradeInputRow } from './TradeInputRow';
 import { DateTimeField } from './DateTimeField';
 import { useTradeForm } from './useTradeForm';
-import { Trade, TradeAction } from '../../../types/trade';
+import { Trade, TradeAction, TradeActionType } from 'src/types/trade';
 
 interface TradeFormProps {
   onClose: () => void;

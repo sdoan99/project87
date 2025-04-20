@@ -4,9 +4,8 @@ import { TradeForm } from './TradeForm';
 import { useTradeSubmit } from '../../../hooks/useTradeSubmit';
 import { useParams } from 'react-router-dom';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
-import { Trade } from '../../../types/trade';
+import { Trade, TradeAction, TradeActionType } from '../../../types/trade';
 import { useTradeActions } from '../../../hooks/useTradeActions';
-import type { TradeData } from './useTradeSubmit';
 
 interface NewTradeProps {
   onClose: () => void;

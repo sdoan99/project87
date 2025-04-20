@@ -1,6 +1,6 @@
 import { supabase } from '../../../lib/supabase';
 import { useAuthStore } from '../../../store/authStore';
-import { NewTradeData } from '../../../types/trade';
+import type { TradeAction, TradeActionType } from 'src/types/trade';
 
 export function useTradeSubmit() {
   const { user } = useAuthStore();
