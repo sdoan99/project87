@@ -1,22 +1,25 @@
 import { useState, useCallback } from 'react';
 import { InfoPanel } from './InfoPanel/infopanel';
+import { useStrategyProfile } from '../../hooks/useStrategyProfile';
+
+import { useParams } from 'react-router-dom';
 import { useTradeRefreshStore } from '../../store/tradeRefreshStore';
 import { TVAdvChart } from '../../components/tradingview/TVAdvChart';
 import { TradeTable } from './TradeTable/TradeTable';
 import { AddTradeButton } from './ui/addtradebutton';
 import { NewTrade } from './NewTrade';
 
+
 export default function Performance() {
   const [showNewTrade, setShowNewTrade] = useState<boolean>(false);
+  const { strategyName } = useParams<{ strategyName: string }>();
+  const { profile, loading, error, refetch } = useStrategyProfile(strategyName);
   const triggerRefresh = useTradeRefreshStore(s => s.triggerRefresh);
-  const refreshTrigger = useTradeRefreshStore(s => s.refreshTrigger);
 
-  const handleTradeSubmit = useCallback(() => {
+  const handleTradeSubmit = useCallback(async () => {
+    await refetch(); // Directly fetch latest metrics after trade submit
     setShowNewTrade(false);
-    setTimeout(() => {
-      triggerRefresh();
-    }, 600); // Wait 600ms for backend trigger to update metrics
-  }, [setShowNewTrade, triggerRefresh]);
+  }, [refetch, setShowNewTrade]);
 
   const handleOpenNewTrade = useCallback(() => {
     setShowNewTrade(true);
@@ -30,9 +33,9 @@ export default function Performance() {
     <div className='bg-gray-900 min-h-screen'>
       <div className='container mx-auto px-4 pt-20'>
         <div className='flex gap-8'>
-          {/* Left sidebar with InfoPanel - Pass refreshTrigger */}
+          {/* Left sidebar with InfoPanel - Pass profile, loading, error, refetch */}
           <div className='w-[320px] flex-shrink-0'>
-            <InfoPanel refreshTrigger={refreshTrigger} />
+            <InfoPanel profile={profile} loading={loading} error={error} refetch={refetch} />
           </div>
 
           {/* Main content area */}

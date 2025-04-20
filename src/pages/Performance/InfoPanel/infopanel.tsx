@@ -9,13 +9,16 @@ import { StrategyDetails } from './strategy-details';
 import { Profile } from './profile';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
 
+import { StrategyProfile } from '../../../hooks/useStrategyProfile';
+
 interface InfoPanelProps {
-  refreshTrigger: number;
+  profile: StrategyProfile | null;
+  loading: boolean;
+  error: string | null;
+  refetch: () => Promise<void>;
 }
 
-export function InfoPanel({ refreshTrigger }: InfoPanelProps) {
-  const { strategyName } = useParams<{ strategyName: string }>();
-  const { profile, loading, error, refetch } = useStrategyProfile(strategyName, refreshTrigger);
+export function InfoPanel({ profile, loading, error, refetch }: InfoPanelProps) {
 
   if (loading) {
     return (
@@ -54,12 +57,6 @@ export function InfoPanel({ refreshTrigger }: InfoPanelProps) {
     <Card className='w-[320px]'>
       <div className='p-4 space-y-3'>
             {/*
-            <button
-              className='mb-2 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors'
-              onClick={refetch}
-            >
-              Refresh Metrics
-            </button>
             */}
         <InfoHeader name={profile.name} username={profile.username} />
         <Description description={profile.description} />
