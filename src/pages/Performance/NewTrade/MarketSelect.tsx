@@ -20,7 +20,7 @@ export function MarketSelect({ value, onChange }: MarketSelectProps) {
           <option value='OPTIONS'>OPTIONS</option>
           <option value='FOREX'>FOREX</option>
           <option value='CRYPTO'>CRYPTO</option>
-          <option value='CRYPTO'>SPORTS</option>
+          <option value='SPORTS'>SPORTS</option>
           <option value='ALTERNATIVE'>ALTERNATIVE</option>
         </select>
         <ChevronDown className='absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none' />

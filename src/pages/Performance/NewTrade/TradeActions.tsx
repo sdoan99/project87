@@ -30,12 +30,14 @@ export function TradeActions({ actions, onAdd, onRemove, onUpdateAction }: Trade
           >
             <div className='col-span-1 flex items-center gap-2'>
               <button
+                type="button"
                 onClick={() => onRemove(index)}
                 className='p-1.5 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors'
               >
                 <X className='w-4 h-4' />
               </button>
               <button
+                type="button"
                 onClick={() =>
                   onUpdateAction(index, 'type', action.type === 'BUY' ? 'SELL' : 'BUY')
                 }
