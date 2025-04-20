@@ -8,12 +8,14 @@ import { Performance } from './performance';
 import { StrategyDetails } from './strategy-details';
 import { Profile } from './profile';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
-import { useTradeRefreshStore } from '../../../store/tradeRefreshStore';
 
-export function InfoPanel() {
-  const refreshTrigger = useTradeRefreshStore(s => s.refreshTrigger);
+interface InfoPanelProps {
+  refreshTrigger: number;
+}
+
+export function InfoPanel({ refreshTrigger }: InfoPanelProps) {
   const { strategyName } = useParams<{ strategyName: string }>();
-  const { profile, loading, error } = useStrategyProfile(strategyName, refreshTrigger);
+  const { profile, loading, error, refetch } = useStrategyProfile(strategyName, refreshTrigger);
 
   if (loading) {
     return (
@@ -51,6 +53,12 @@ export function InfoPanel() {
   return (
     <Card className='w-[320px]'>
       <div className='p-4 space-y-3'>
+        <button
+          className='mb-2 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors'
+          onClick={refetch}
+        >
+          Refresh Metrics
+        </button>
         <InfoHeader name={profile.name} username={profile.username} />
         <Description description={profile.description} />
         <PriceSection />

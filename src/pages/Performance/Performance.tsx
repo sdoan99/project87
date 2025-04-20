@@ -9,10 +9,13 @@ import { NewTrade } from './NewTrade';
 export default function Performance() {
   const [showNewTrade, setShowNewTrade] = useState<boolean>(false);
   const triggerRefresh = useTradeRefreshStore(s => s.triggerRefresh);
+  const refreshTrigger = useTradeRefreshStore(s => s.refreshTrigger);
 
   const handleTradeSubmit = useCallback(() => {
     setShowNewTrade(false);
-    triggerRefresh();
+    setTimeout(() => {
+      triggerRefresh();
+    }, 600); // Wait 600ms for backend trigger to update metrics
   }, [setShowNewTrade, triggerRefresh]);
 
   const handleOpenNewTrade = useCallback(() => {
@@ -29,7 +32,7 @@ export default function Performance() {
         <div className='flex gap-8'>
           {/* Left sidebar with InfoPanel - Pass refreshTrigger */}
           <div className='w-[320px] flex-shrink-0'>
-            <InfoPanel />
+            <InfoPanel refreshTrigger={refreshTrigger} />
           </div>
 
           {/* Main content area */}

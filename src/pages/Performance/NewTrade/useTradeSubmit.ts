@@ -77,6 +77,12 @@ export function useTradeSubmit() {
         status: 'OPEN',
       });
 
+      // Call Supabase RPC to recalculate and update strategy metrics
+      const { error: metricsError } = await supabase.rpc('FUNCTION_INSERT_STRATEGY_STATS_metrics', {
+        strategy_id: data.strategyId,
+      });
+      if (metricsError) throw metricsError;
+
       return betParent.id;
     } catch (error) {
       console.error('Error submitting trade:', error);

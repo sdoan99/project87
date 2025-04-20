@@ -123,6 +123,7 @@ export function TradeForm({
         </div>
         <button
           type='submit'
+          name='submit-trade'
           data-testid='submit-trade'
           disabled={!isValid}
           className={`px-6 py-2.5 rounded-lg transition-colors ${
