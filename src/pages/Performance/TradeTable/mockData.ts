@@ -1,7 +1,8 @@
-import { Trade } from './types';
+import { Trade } from '../../../types/trade';
 
 export const mockTrades: Trade[] = [
   {
+    betId: 'T1',
     date: '12/2/2024',
     symbol: 'GOOGL',
     status: 'OPEN',
@@ -17,6 +18,7 @@ export const mockTrades: Trade[] = [
     returnPercentage: null,
   },
   {
+    betId: 'T2',
     date: '12/1/2024',
     symbol: 'RIZZ',
     status: 'OPEN',
@@ -32,6 +34,7 @@ export const mockTrades: Trade[] = [
     returnPercentage: 53.33,
   },
   {
+    betId: 'T3',
     date: '10/17/2024',
     symbol: 'SPY',
     status: 'LOSS',
@@ -47,6 +50,7 @@ export const mockTrades: Trade[] = [
     returnPercentage: -200.0,
   },
   {
+    betId: 'T4',
     date: '10/16/2024',
     symbol: 'QQQ',
     status: 'OPEN',
@@ -62,6 +66,7 @@ export const mockTrades: Trade[] = [
     returnPercentage: -25.0,
   },
   {
+    betId: 'T5',
     date: '10/16/2024',
     symbol: 'SPX6900',
     status: 'WIN',
@@ -77,6 +82,7 @@ export const mockTrades: Trade[] = [
     returnPercentage: 50.0,
   },
   {
+    betId: 'T6',
     date: '10/16/2024',
     symbol: 'XLE',
     status: 'WIN',
@@ -92,6 +98,7 @@ export const mockTrades: Trade[] = [
     returnPercentage: 50.0,
   },
   {
+    betId: 'T7',
     date: '10/16/2024',
     symbol: 'GME',
     status: 'WIN',
