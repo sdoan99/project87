@@ -16,7 +16,7 @@ interface NewTradeProps {
 export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradeProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const { strategyName } = useParams<{ strategyName: string }>();
-  const { profile } = useStrategyProfile(strategyName);
+  const { profile, refetch } = useStrategyProfile(strategyName);
   const { submitTrade, updateTrade, deleteTrade } = useTradeSubmit();
   const { actions: initialActions, loading } = useTradeActions(initialTrade?.betId);
 
@@ -102,6 +102,7 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
             initialTrade={initialTrade}
             initialActions={initialActions}
             loading={loading}
+            onMetricsRefresh={refetch}
           />
         </div>
       </div>

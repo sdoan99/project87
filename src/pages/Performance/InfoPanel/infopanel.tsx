@@ -53,12 +53,14 @@ export function InfoPanel({ refreshTrigger }: InfoPanelProps) {
   return (
     <Card className='w-[320px]'>
       <div className='p-4 space-y-3'>
-        <button
-          className='mb-2 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors'
-          onClick={refetch}
-        >
-          Refresh Metrics
-        </button>
+            {/*
+            <button
+              className='mb-2 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors'
+              onClick={refetch}
+            >
+              Refresh Metrics
+            </button>
+            */}
         <InfoHeader name={profile.name} username={profile.username} />
         <Description description={profile.description} />
         <PriceSection />

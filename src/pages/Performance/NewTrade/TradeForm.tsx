@@ -13,6 +13,7 @@ interface TradeFormProps {
   initialTrade?: Trade;
   initialActions?: TradeAction[];
   loading?: boolean;
+  onMetricsRefresh?: () => Promise<void> | void;
 }
 
 export function TradeForm({
@@ -22,6 +23,7 @@ export function TradeForm({
   initialTrade,
   initialActions,
   loading = false,
+  onMetricsRefresh,
 }: TradeFormProps) {
   const {
     market,
@@ -54,6 +56,9 @@ export function TradeForm({
       };
 
       await onSubmit(formData);
+      if (onMetricsRefresh) {
+        await onMetricsRefresh();
+      }
     } catch (err) {
       console.error('Error submitting form:', err);
     }
