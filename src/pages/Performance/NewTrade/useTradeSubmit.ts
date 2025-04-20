@@ -1,20 +1,11 @@
 import { supabase } from '../../../lib/supabase';
 import { useAuthStore } from '../../../store/authStore';
-import { TradeAction } from './types';
-
-export interface TradeData {
-  market: string;
-  sector: string;
-  symbol: string;
-  expiration: string;
-  actions: TradeAction[];
-  strategyId: string;
-}
+import { NewTradeData } from '../../../types/trade';
 
 export function useTradeSubmit() {
   const { user } = useAuthStore();
 
-  const submitTrade = async (data: TradeData) => {
+  const submitTrade = async (data: NewTradeData) => {
     if (!user) {
       throw new Error('User must be logged in to submit trades');
     }

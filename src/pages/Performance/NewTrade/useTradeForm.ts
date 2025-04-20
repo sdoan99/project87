@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Trade, TradeAction } from '../../../types/trade';
+import { DEFAULT_TRADE_ACTION } from '../../../utils/trade';
 
 export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[]) {
   const [market, setMarket] = useState('STOCK');
@@ -7,13 +8,7 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
   const [symbol, setSymbol] = useState('');
   const [expiration, setExpiration] = useState(new Date().toISOString().slice(0, 16));
   const [actions, setActions] = useState<TradeAction[]>([
-    {
-      type: 'BUY',
-      date: new Date().toISOString().slice(0, 16),
-      quantity: 0,
-      price: 0,
-      fee: 0,
-    },
+    { ...DEFAULT_TRADE_ACTION },
   ]);
 
   // Initialize form with existing trade data
@@ -27,13 +22,7 @@ export function useTradeForm(initialTrade?: Trade, initialActions?: TradeAction[
   const handleAddAction = () => {
     setActions([
       ...actions,
-      {
-        type: 'BUY',
-        date: new Date().toISOString().slice(0, 16),
-        quantity: 0,
-        price: 0,
-        fee: 0,
-      },
+      { ...DEFAULT_TRADE_ACTION },
     ]);
   };
 
