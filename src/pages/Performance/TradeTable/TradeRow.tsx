@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trade } from './types';
+import { Trade } from '../../../types/trade';
 import { formatCurrency, formatPercentage } from './utils';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { useSymbol } from '../../../components/tradingview/context/SymbolContext';
