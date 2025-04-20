@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { InfoPanel } from './InfoPanel/infopanel';
+import { useTradeRefreshStore } from '../../store/tradeRefreshStore';
 import { TVAdvChart } from '../../components/tradingview/TVAdvChart';
 import { TradeTable } from './TradeTable/TradeTable';
 import { AddTradeButton } from './ui/addtradebutton';
 import { NewTrade } from './NewTrade';
 
 export default function Performance() {
-  const [showNewTrade, setShowNewTrade] = useState(false);
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const [showNewTrade, setShowNewTrade] = useState<boolean>(false);
+  const triggerRefresh = useTradeRefreshStore(s => s.triggerRefresh);
 
-  const handleTradeSubmit = () => {
+  const handleTradeSubmit = useCallback(() => {
     setShowNewTrade(false);
-    // Increment the refresh trigger to cause a refresh of both components
-    setRefreshTrigger(prev => prev + 1);
-  };
+    triggerRefresh();
+  }, [setShowNewTrade, triggerRefresh]);
+
+  const handleOpenNewTrade = useCallback(() => {
+    setShowNewTrade(true);
+  }, [setShowNewTrade]);
+
+  const handleCloseNewTrade = useCallback(() => {
+    setShowNewTrade(false);
+  }, [setShowNewTrade]);
 
   return (
     <div className='bg-gray-900 min-h-screen'>
@@ -21,7 +29,7 @@ export default function Performance() {
         <div className='flex gap-8'>
           {/* Left sidebar with InfoPanel - Pass refreshTrigger */}
           <div className='w-[320px] flex-shrink-0'>
-            <InfoPanel refreshTrigger={refreshTrigger} />
+            <InfoPanel />
           </div>
 
           {/* Main content area */}
@@ -35,9 +43,9 @@ export default function Performance() {
             <div className='bg-gray-800 rounded-lg p-4 border border-gray-700'>
               <div className='flex items-center justify-between mb-6'>
                 <h2 className='text-xl font-semibold text-white'>Trade Overview</h2>
-                <AddTradeButton onClick={() => setShowNewTrade(true)} />
+                <AddTradeButton onClick={handleOpenNewTrade} />
               </div>
-              <TradeTable refreshTrigger={refreshTrigger} />
+              <TradeTable />
             </div>
           </div>
         </div>
@@ -45,7 +53,7 @@ export default function Performance() {
 
       {/* New Trade Modal */}
       {showNewTrade && (
-        <NewTrade onClose={() => setShowNewTrade(false)} onSubmitSuccess={handleTradeSubmit} />
+        <NewTrade onClose={handleCloseNewTrade} onSubmitSuccess={handleTradeSubmit} />
       )}
     </div>
   );

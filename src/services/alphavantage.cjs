@@ -9,6 +9,4 @@ fetch(url, { headers: { 'User-Agent': 'node-fetch' } })
   .then(data => console.log(data))
   .catch(err => console.error('Error:', err));
 
-
-
 //  node src/services/alphavantage.cjs TSLA

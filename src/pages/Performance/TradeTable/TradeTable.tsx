@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { TradeRow } from './TradeRow';
 import { ArrowDownUp } from 'lucide-react';
 import { useTradeData } from '../../../hooks/useTradeData';
@@ -6,12 +6,10 @@ import { useParams } from 'react-router-dom';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
 import { NewTrade } from '../NewTrade';
 import { Trade } from '../../../types/trade';
+import { useTradeRefreshStore } from '../../../store/tradeRefreshStore';
 
-interface TradeTableProps {
-  refreshTrigger?: number;
-}
-
-export function TradeTable({ refreshTrigger = 0 }: TradeTableProps) {
+export function TradeTable() {
+  const refreshTrigger = useTradeRefreshStore(s => s.refreshTrigger);
   const { strategyName } = useParams<{ strategyName: string }>();
   const { profile } = useStrategyProfile(strategyName);
   const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);

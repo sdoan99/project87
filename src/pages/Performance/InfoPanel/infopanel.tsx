@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { Card } from '../ui/card';
 import { InfoHeader } from './infoheader';
@@ -9,12 +8,10 @@ import { Performance } from './performance';
 import { StrategyDetails } from './strategy-details';
 import { Profile } from './profile';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
+import { useTradeRefreshStore } from '../../../store/tradeRefreshStore';
 
-interface InfoPanelProps {
-  refreshTrigger?: number;
-}
-
-export function InfoPanel({ refreshTrigger = 0 }: InfoPanelProps) {
+export function InfoPanel() {
+  const refreshTrigger = useTradeRefreshStore(s => s.refreshTrigger);
   const { strategyName } = useParams<{ strategyName: string }>();
   const { profile, loading, error } = useStrategyProfile(strategyName, refreshTrigger);
 

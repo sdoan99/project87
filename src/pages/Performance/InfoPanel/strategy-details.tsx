@@ -1,16 +1,10 @@
-import { FC } from 'react';
-
 interface StrategyDetailsProps {
   marketTypes: string;
   categories: string;
   timeframes: string;
 }
 
-export const StrategyDetails: FC<StrategyDetailsProps> = ({
-  marketTypes,
-  categories,
-  timeframes,
-}) => {
+export function StrategyDetails({ marketTypes, categories, timeframes }: StrategyDetailsProps) {
   return (
     <div>
       <h3 className='text-lg text-white font-semibold mb-2'>Strategy Details</h3>
@@ -30,4 +24,4 @@ export const StrategyDetails: FC<StrategyDetailsProps> = ({
       </div>
     </div>
   );
-};
+}
