@@ -1,11 +1,12 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { TradeForm } from './TradeForm';
 import { useTradeSubmit } from '../../../hooks/useTradeSubmit';
 import { useParams } from 'react-router-dom';
 import { useStrategyProfile } from '../../../hooks/useStrategyProfile';
-import { Trade, TradeAction, TradeActionType } from '../../../types/trade';
+import type { Trade, NewTradeData, TradeAction, TradeActionType } from '../../../types/trade';
 import { useTradeActions } from '../../../hooks/useTradeActions';
+import { useAlpacaStream } from '../../Alpaca/useAlpacaStream';
 
 interface NewTradeProps {
   onClose: () => void;
@@ -20,6 +21,12 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
   const { submitTrade, updateTrade, deleteTrade } = useTradeSubmit();
   const { actions: initialActions, loading } = useTradeActions(initialTrade?.betId);
 
+  // live symbol streaming
+  const [symbolInput, setSymbolInput] = useState<string>(initialTrade?.symbol ?? '');
+  const tableData = useAlpacaStream({ symbols: symbolInput ? [symbolInput] : [], columns: ['p'], subscriptions: ['trades'] });
+  const price = symbolInput ? tableData[symbolInput]?.p : undefined;
+  const symbolData = symbolInput ? tableData[symbolInput] : undefined;
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -33,13 +40,13 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
     };
   }, [onClose]);
 
-  const handleSubmit = async (formData: Omit<TradeData, 'strategyId'>) => {
+  const handleSubmit = async (formData: Omit<NewTradeData, 'strategyId'>) => {
     try {
       if (!profile?.id) {
         throw new Error('Strategy profile not found');
       }
 
-      const data = {
+      const data: NewTradeData = {
         ...formData,
         strategyId: profile.id,
       };
@@ -103,6 +110,10 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
             initialActions={initialActions}
             loading={loading}
             onMetricsRefresh={refetch}
+            symbolInput={symbolInput}
+            setSymbolInput={setSymbolInput}
+            price={price}
+            symbolData={symbolData}
           />
         </div>
       </div>

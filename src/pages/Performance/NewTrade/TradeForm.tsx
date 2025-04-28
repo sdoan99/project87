@@ -14,6 +14,10 @@ interface TradeFormProps {
   initialActions?: TradeAction[];
   loading?: boolean;
   onMetricsRefresh?: () => Promise<void> | void;
+  symbolInput: string;
+  setSymbolInput: (val: string) => void;
+  price?: number | string;
+  symbolData?: Record<string, any>;
 }
 
 export function TradeForm({
@@ -24,14 +28,16 @@ export function TradeForm({
   initialActions,
   loading = false,
   onMetricsRefresh,
+  symbolInput,
+  setSymbolInput,
+  price,
+  symbolData,
 }: TradeFormProps) {
   const {
     market,
     setMarket,
     sector,
     setSector,
-    symbol,
-    setSymbol,
     expiration,
     setExpiration,
     actions,
@@ -50,7 +56,7 @@ export function TradeForm({
       const formData = {
         market,
         sector,
-        symbol,
+        symbol: symbolInput,
         expiration,
         actions,
       };
@@ -86,8 +92,8 @@ export function TradeForm({
         <TradeInputRow
           label='Symbol'
           name='symbol'
-          value={symbol}
-          onChange={e => setSymbol(e.target.value)}
+          value={symbolInput}
+          onChange={e => setSymbolInput(e.target.value)}
           placeholder='Enter symbol'
           className=''
           data-testid='symbol-input'

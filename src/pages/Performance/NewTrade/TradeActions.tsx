@@ -2,16 +2,17 @@ import React from 'react';
 import { Plus, X } from 'lucide-react';
 import { TradeInputRow } from './TradeInputRow';
 import { DateTimeField } from './DateTimeField';
-import type { TradeAction, TradeActionType } from 'src/types/trade';
+import type { TradeAction } from 'src/types/trade';
 
 interface TradeActionsProps {
   actions: TradeAction[];
   onAdd: () => void;
   onRemove: (index: number) => void;
   onUpdateAction: (index: number, field: keyof TradeAction, value: any) => void;
+  price?: number | string;
 }
 
-export function TradeActions({ actions, onAdd, onRemove, onUpdateAction }: TradeActionsProps) {
+export function TradeActions({ actions, onAdd, onRemove, onUpdateAction, price }: TradeActionsProps) {
   return (
     <div className='space-y-3'>
       <div className='grid grid-cols-5 gap-4 text-sm font-medium text-gray-400 px-2'>
@@ -69,7 +70,7 @@ export function TradeActions({ actions, onAdd, onRemove, onUpdateAction }: Trade
               type='number'
               name='price'
               placeholder='0.00'
-              value={action.price}
+              value={action.price ?? price ?? ''}
               onChange={e => onUpdateAction(index, 'price', Number(e.target.value))}
               className='col-span-1'
               data-testid={`price-input-${index}`}
