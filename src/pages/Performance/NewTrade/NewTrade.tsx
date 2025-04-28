@@ -23,7 +23,11 @@ export function NewTrade({ onClose, onSubmitSuccess, initialTrade }: NewTradePro
 
   // live symbol streaming
   const [symbolInput, setSymbolInput] = useState<string>(initialTrade?.symbol ?? '');
-  const tableData = useAlpacaStream({ symbols: symbolInput ? [symbolInput] : [], columns: ['p'], subscriptions: ['trades'] });
+  const tableData = useAlpacaStream({
+    symbols: symbolInput ? [symbolInput] : [],
+    columns: ['p'],
+    subscriptions: ['trades'],
+  });
   const price = symbolInput ? tableData[symbolInput]?.p : undefined;
   const symbolData = symbolInput ? tableData[symbolInput] : undefined;
 

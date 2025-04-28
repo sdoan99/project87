@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SymbolPriceTable } from '../Alpaca/SymbolPriceTable';
 import { useAlpacaStream } from '../Alpaca/useAlpacaStream';
+import { DisplayUserId } from './DisplayUserId';
 
 export default function Community() {
   const [symbolInput, setSymbolInput] = useState('');
@@ -35,6 +36,7 @@ export default function Community() {
   return (
     <div className='min-h-screen bg-gray-900 pt-24'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
+        <DisplayUserId />
         <h1 className='text-4xl md:text-5xl font-bold text-white text-center mb-4'>
           Financial <span className='text-blue-400'>Wellness</span> Coming Soon
         </h1>
@@ -47,11 +49,7 @@ export default function Community() {
           ghosting you. Thanks for bearing with US.
         </p>
         {/* Embed SymbolPriceTable at the bottom */}
-        <SymbolPriceTable
-          symbolInput={symbolInput}
-          setSymbolInput={setSymbolInput}
-          price={price}
-        />
+        <SymbolPriceTable symbolInput={symbolInput} setSymbolInput={setSymbolInput} price={price} />
       </div>
     </div>
   );

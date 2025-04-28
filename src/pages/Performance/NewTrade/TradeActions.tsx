@@ -12,7 +12,13 @@ interface TradeActionsProps {
   price?: number | string;
 }
 
-export function TradeActions({ actions, onAdd, onRemove, onUpdateAction, price }: TradeActionsProps) {
+export function TradeActions({
+  actions,
+  onAdd,
+  onRemove,
+  onUpdateAction,
+  price,
+}: TradeActionsProps) {
   return (
     <div className='space-y-3'>
       <div className='grid grid-cols-5 gap-4 text-sm font-medium text-gray-400 px-2'>

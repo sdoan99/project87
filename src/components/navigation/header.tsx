@@ -189,7 +189,9 @@ function Header1() {
               <SignedOut>
                 <div className='flex flex-col gap-4 pt-4 border-t border-gray-800'>
                   <SignInButton>
-                    <Button variant='outline' className='w-full'>Sign in</Button>
+                    <Button variant='outline' className='w-full'>
+                      Sign in
+                    </Button>
                   </SignInButton>
                   <Link to='/register' className='w-full'>
                     <Button className='w-full'>Get started</Button>
