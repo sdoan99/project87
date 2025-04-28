@@ -12,16 +12,13 @@ import {
 import { Menu, MoveRight, User, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
-import { useUserProfile } from '../../hooks/useUserProfile';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
 function Header1() {
   const [isOpen, setOpen] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
   const location = useLocation();
   const isLandingPage = location.pathname === '/';
-  const { user } = useAuthStore();
-  const { username, loading } = useUserProfile();
 
   useEffect(() => {
     if (!isLandingPage) return;
@@ -146,26 +143,17 @@ function Header1() {
           </p>
         </div>
         <div className='flex justify-end w-full gap-4 lg:pl-[25%]'>
-          {user ? (
-            <div className='flex items-center gap-4'>
-              <div className='flex items-center gap-2 text-gray-300'>
-                <User className='w-4 h-4' />
-                <span>{loading ? 'Loading...' : username}</span>
-              </div>
-              <Button variant='outline' onClick={() => useAuthStore.getState().signOut()}>
-                Sign out
-              </Button>
-            </div>
-          ) : (
-            <>
-              <Link to='/signin'>
-                <Button variant='outline'>Sign in</Button>
-              </Link>
-              <Link to='/register'>
-                <Button>Get started</Button>
-              </Link>
-            </>
-          )}
+          <SignedOut>
+            <SignInButton>
+              <Button variant='outline'>Sign in</Button>
+            </SignInButton>
+            <Link to='/register'>
+              <Button>Get started</Button>
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton afterSignOutUrl='/' />
+          </SignedIn>
         </div>
         <div className='flex w-12 shrink lg:hidden items-end justify-end'>
           <Button variant='ghost' onClick={() => setOpen(!isOpen)}>
@@ -198,32 +186,21 @@ function Header1() {
                   </div>
                 </div>
               ))}
-              {user ? (
+              <SignedOut>
                 <div className='flex flex-col gap-4 pt-4 border-t border-gray-800'>
-                  <div className='flex items-center gap-2 text-gray-300 px-4'>
-                    <User className='w-4 h-4' />
-                    <span>{loading ? 'Loading...' : username}</span>
-                  </div>
-                  <Button
-                    variant='outline'
-                    className='w-full'
-                    onClick={() => useAuthStore.getState().signOut()}
-                  >
-                    Sign out
-                  </Button>
-                </div>
-              ) : (
-                <div className='flex flex-col gap-4 pt-4 border-t border-gray-800'>
-                  <Link to='/signin' className='w-full'>
-                    <Button variant='outline' className='w-full'>
-                      Sign in
-                    </Button>
-                  </Link>
+                  <SignInButton>
+                    <Button variant='outline' className='w-full'>Sign in</Button>
+                  </SignInButton>
                   <Link to='/register' className='w-full'>
                     <Button className='w-full'>Get started</Button>
                   </Link>
                 </div>
-              )}
+              </SignedOut>
+              <SignedIn>
+                <div className='flex flex-col gap-4 pt-4 border-t border-gray-800'>
+                  <UserButton afterSignOutUrl='/' />
+                </div>
+              </SignedIn>
             </div>
           )}
         </div>
