@@ -20,6 +20,7 @@ import Subscription from './pages/Subscription/Subscription';
 import Support from './pages/Support/Support';
 import Documentation from './pages/Documentation/Documentation';
 import Changelog from './pages/Changelog/changelog';
+import Alpaca from './pages/Alpaca/Alpaca';
 
 export default function App() {
   return (
@@ -47,6 +48,7 @@ export default function App() {
                   <Route path='/support' element={<Support />} />
                   <Route path='/docs' element={<Documentation />} />
                   <Route path='/changelog' element={<Changelog />} />
+				  <Route path='/alpaca' element={<Alpaca />} />
                 </Routes>
               </main>
               <Footerdemo />

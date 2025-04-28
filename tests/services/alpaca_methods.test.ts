@@ -1,0 +1,61 @@
+import 'dotenv/config';
+import { alpaca } from '../../src/services/alpaca2';
+
+console.log('Alpaca client methods:');
+console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(alpaca)));
+
+//npx tsx tests/alpaca_methods.test.ts
+
+/*
+  'constructor',
+  'httpRequest',
+  'dataHttpRequest',
+  'polygonHttpRequest',
+  'getAccount',
+  'updateAccountConfigurations',
+  'getAccountConfigurations',
+  'getAccountActivities',
+  'getPortfolioHistory',
+  'getPositions',
+  'getPosition',
+  'closeAllPositions',
+  'closePosition',
+  'getCalendar',
+  'getClock',
+  'getAssets',
+  'getAsset',
+  'getOrders',
+  'getOrder',
+  'getOrderByClientId',
+  'createOrder',
+  'replaceOrder',
+  'cancelOrder',
+  'cancelAllOrders',
+  'getAggregates',
+  'getBars',
+  'lastTrade',
+  'lastQuote',
+  'getWatchlists',
+  'getWatchlist',
+  'addWatchlist',
+  'addToWatchlist',
+  'updateWatchlist',
+  'deleteWatchlist',
+  'deleteFromWatchlist',
+  'getExchanges',
+  'getSymbolTypeMap',
+  'getHistoricTradesV2',
+  'getHistoricQuotesV2',
+  'getHistoricAggregatesV2',
+  'getLastTrade',
+  'getLastQuote',
+  'getConditionMap',
+  'getCompany',
+  'getAnalysts',
+  'getDividends',
+  'getEarnings',
+  'getFinancials',
+  'getSplits',
+  'getNews',
+  'getSymbol'
+  */

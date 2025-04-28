@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { SymbolPriceTable } from '../Alpaca/SymbolPriceTable';
+import { useAlpacaStream } from '../Alpaca/useAlpacaStream';
 
 export default function Community() {
+  const [symbolInput, setSymbolInput] = useState('');
+  const symbols = [
+    'SPY', 'QQQ', 'AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'META', 'TSLA', 'BRK.A', 'TSM', 'JPM', 'GME', 'GLD',
+  ];
+  const columns = ['T', 'S', 'i', 'x', 'p', 's', 'c', 't', 'z'];
+  const keyId = import.meta.env.VITE_ALPACA_KEY_ID;
+  const secretKey = import.meta.env.VITE_ALPACA_SECRET_KEY;
+  const tableData = useAlpacaStream({ symbols, columns, keyId, secretKey });
+
+  const symbolData = tableData[symbolInput?.toUpperCase()] ?? {};
+  const price = symbolData?.p;
+
   return (
     <div className='min-h-screen bg-gray-900 pt-24'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
@@ -15,6 +29,13 @@ export default function Community() {
           We're still balancing our books—and our lives. Launching soon to stop your budget from
           ghosting you. Thanks for bearing with US.
         </p>
+        {/* Embed SymbolPriceTable at the bottom */}
+        <SymbolPriceTable
+          symbolInput={symbolInput}
+          setSymbolInput={setSymbolInput}
+          price={price}
+          symbolData={symbolData}
+        />
       </div>
     </div>
   );
