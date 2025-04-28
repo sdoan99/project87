@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
 import { useUserProfile } from '../../hooks/useUserProfile';
 import { supabase } from '../../lib/supabase';
 import PrivacySettings from './PrivacySettings';
@@ -39,7 +38,8 @@ const timeframes = [
 
 export default function CreateForm() {
   const navigate = useNavigate();
-  const { user } = useAuthStore();
+  // Clerk user will be provided by useUser hook
+  const user = undefined;
   const { username } = useUserProfile();
   const [isPublic, setIsPublic] = useState(true);
   const [name, setName] = useState('');

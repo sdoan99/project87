@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { useAuthStore } from '../store/authStore';
 
 /**
  * React hook to fetch and provide the current user's profile (username).
@@ -13,7 +12,8 @@ export interface UseUserProfileResult {
 }
 
 export function useUserProfile(): UseUserProfileResult {
-  const user = useAuthStore(state => state.user);
+  // Clerk user will be provided by useUser hook
+  const user = undefined;
   const [username, setUsername] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

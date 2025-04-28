@@ -1,9 +1,9 @@
 import { supabase } from '../lib/supabase';
-import { useAuthStore } from '../store/authStore';
 import { NewTradeData, TradeAction } from '../types/trade';
 
 export function useTradeSubmit() {
-  const { user } = useAuthStore();
+  // Clerk user will be provided by useUser hook
+  const user = undefined;
 
   const submitTrade = async (data: NewTradeData) => {
     if (!user) {
