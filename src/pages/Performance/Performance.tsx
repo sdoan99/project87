@@ -9,7 +9,6 @@ import { TradeTable } from './TradeTable/TradeTable';
 import { AddTradeButton } from './ui/addtradebutton';
 import { NewTrade } from './NewTrade';
 
-
 export default function Performance() {
   const [showNewTrade, setShowNewTrade] = useState<boolean>(false);
   const { strategyName } = useParams<{ strategyName: string }>();

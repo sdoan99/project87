@@ -48,7 +48,7 @@ export default function App() {
                   <Route path='/support' element={<Support />} />
                   <Route path='/docs' element={<Documentation />} />
                   <Route path='/changelog' element={<Changelog />} />
-				  <Route path='/alpaca' element={<Alpaca />} />
+                  <Route path='/alpaca' element={<Alpaca />} />
                 </Routes>
               </main>
               <Footerdemo />

@@ -78,7 +78,12 @@ export async function createAlpaca4Stream({
         const data = JSON.parse(event.data);
         const messages = Array.isArray(data) ? data : [data];
         for (const msg of messages) {
-          if (msg && typeof msg === 'object' && 'msg' in msg && (msg as any).msg === 'authenticated') {
+          if (
+            msg &&
+            typeof msg === 'object' &&
+            'msg' in msg &&
+            (msg as any).msg === 'authenticated'
+          ) {
             ws.send(
               JSON.stringify({
                 action: 'subscribe',

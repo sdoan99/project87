@@ -19,7 +19,6 @@ interface InfoPanelProps {
 }
 
 export function InfoPanel({ profile, loading, error, refetch }: InfoPanelProps) {
-
   if (loading) {
     return (
       <Card className='w-[320px]'>
@@ -56,8 +55,8 @@ export function InfoPanel({ profile, loading, error, refetch }: InfoPanelProps) 
   return (
     <Card className='w-[320px]'>
       <div className='p-4 space-y-3'>
-            {/*
-            */}
+        {/*
+         */}
         <InfoHeader name={profile.name} username={profile.username} />
         <Description description={profile.description} />
         <PriceSection />

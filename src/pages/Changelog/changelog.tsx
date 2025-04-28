@@ -17,7 +17,7 @@ function Changelog() {
         'Automated trading and live brokerage connectivity coming soon',
       ],
     },
-		/*
+    /*
     {
       version: 'v 1.0.2',
       date: 'April 20, 2025',

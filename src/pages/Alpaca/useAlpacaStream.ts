@@ -17,7 +17,9 @@ export function useAlpacaStream({
   keyId,
   secretKey,
 }: AlpacaStreamOptions) {
-  const [tableData, setTableData] = useState<Record<string, Record<string, string | number | undefined>>>({});
+  const [tableData, setTableData] = useState<
+    Record<string, Record<string, string | number | undefined>>
+  >({});
   const disconnectRef = useRef<null | (() => void)>(null);
 
   useEffect(() => {
@@ -35,10 +37,13 @@ export function useAlpacaStream({
               ...prev,
               [msg.S]: {
                 ...prev[msg.S],
-                ...columns.reduce((acc, col) => {
-                  acc[col] = msg[col] ?? prev[msg.S]?.[col];
-                  return acc;
-                }, {} as Record<string, string | number | undefined>),
+                ...columns.reduce(
+                  (acc, col) => {
+                    acc[col] = msg[col] ?? prev[msg.S]?.[col];
+                    return acc;
+                  },
+                  {} as Record<string, string | number | undefined>
+                ),
               },
             }));
           }

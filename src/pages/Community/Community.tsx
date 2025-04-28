@@ -4,9 +4,26 @@ import { useAlpacaStream } from '../Alpaca/useAlpacaStream';
 
 export default function Community() {
   const [symbolInput, setSymbolInput] = useState('');
-  const symbols = [
-    'SPY', 'QQQ', 'AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'META', 'TSLA', 'BRK.A', 'TSM', 'JPM', 'GME', 'GLD',
+  const defaultSymbols = [
+    'SPY',
+    'QQQ',
+    'AAPL',
+    'MSFT',
+    'NVDA',
+    'AMZN',
+    'GOOGL',
+    'META',
+    'TSLA',
+    'BRK.A',
+    'TSM',
+    'JPM',
+    'GME',
+    'GLD',
   ];
+  const symbols = React.useMemo(() => {
+    const input = symbolInput.trim().toUpperCase();
+    return input && !defaultSymbols.includes(input) ? [...defaultSymbols, input] : defaultSymbols;
+  }, [symbolInput]);
   const columns = ['T', 'S', 'i', 'x', 'p', 's', 'c', 't', 'z'];
   const keyId = import.meta.env.VITE_ALPACA_KEY_ID;
   const secretKey = import.meta.env.VITE_ALPACA_SECRET_KEY;
@@ -34,7 +51,6 @@ export default function Community() {
           symbolInput={symbolInput}
           setSymbolInput={setSymbolInput}
           price={price}
-          symbolData={symbolData}
         />
       </div>
     </div>
