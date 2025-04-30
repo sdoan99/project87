@@ -20,8 +20,10 @@ import Support from './pages/Support/Support';
 import Documentation from './pages/Documentation/Documentation';
 import Changelog from './pages/Changelog/changelog';
 import Alpaca from './pages/Alpaca/Alpaca';
+import { useUserProfileSync } from './hooks/useUserProfileSync';
 
 export default function App() {
+  useUserProfileSync();
   return (
     <HelmetProvider>
       <SymbolProvider>
